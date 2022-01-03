@@ -23,6 +23,7 @@
 		857CF4DB278301B2002C7A5A /* UIStoryBoard+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857CF4DA278301B2002C7A5A /* UIStoryBoard+Additions.swift */; };
 		857CF4DD27830318002C7A5A /* UIWindow+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857CF4DC27830318002C7A5A /* UIWindow+Additions.swift */; };
 		857CF4E527830FAD002C7A5A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857CF4E427830FAD002C7A5A /* User.swift */; };
+		857CF4EB278318E3002C7A5A /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857CF4EA278318E3002C7A5A /* Company.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		857CF4DA278301B2002C7A5A /* UIStoryBoard+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryBoard+Additions.swift"; sourceTree = "<group>"; };
 		857CF4DC27830318002C7A5A /* UIWindow+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+Additions.swift"; sourceTree = "<group>"; };
 		857CF4E427830FAD002C7A5A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		857CF4EA278318E3002C7A5A /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,7 +187,8 @@
 		857CF4DE27830B41002C7A5A /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				857CF4E027830ECC002C7A5A /* User */,
+				857CF4E62783189B002C7A5A /* Companies */,
+				857CF4E027830ECC002C7A5A /* Users */,
 				857CF4DF27830B58002C7A5A /* General */,
 			);
 			path = Application;
@@ -201,14 +204,14 @@
 			path = General;
 			sourceTree = "<group>";
 		};
-		857CF4E027830ECC002C7A5A /* User */ = {
+		857CF4E027830ECC002C7A5A /* Users */ = {
 			isa = PBXGroup;
 			children = (
 				857CF4E327830EF0002C7A5A /* Model */,
 				857CF4E227830EE2002C7A5A /* View */,
 				857CF4E127830ED5002C7A5A /* Controller */,
 			);
-			path = User;
+			path = Users;
 			sourceTree = "<group>";
 		};
 		857CF4E127830ED5002C7A5A /* Controller */ = {
@@ -229,6 +232,38 @@
 			isa = PBXGroup;
 			children = (
 				857CF4E427830FAD002C7A5A /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		857CF4E62783189B002C7A5A /* Companies */ = {
+			isa = PBXGroup;
+			children = (
+				857CF4E9278318D1002C7A5A /* Model */,
+				857CF4E8278318CA002C7A5A /* View */,
+				857CF4E7278318C2002C7A5A /* Controller */,
+			);
+			path = Companies;
+			sourceTree = "<group>";
+		};
+		857CF4E7278318C2002C7A5A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		857CF4E8278318CA002C7A5A /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		857CF4E9278318D1002C7A5A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				857CF4EA278318E3002C7A5A /* Company.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -316,6 +351,7 @@
 				857CF4E527830FAD002C7A5A /* User.swift in Sources */,
 				857CF4CF2782FA19002C7A5A /* LoadingView.swift in Sources */,
 				857CF4AC2782F1CC002C7A5A /* SceneDelegate.swift in Sources */,
+				857CF4EB278318E3002C7A5A /* Company.swift in Sources */,
 				857CF4C02782F4DC002C7A5A /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

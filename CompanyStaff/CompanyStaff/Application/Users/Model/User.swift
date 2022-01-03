@@ -11,9 +11,11 @@ enum Sex: String {
     case male
     case female
 }
-
-protocol Humanable {
+protocol Nameable {
     var name: String { get }
+}
+
+protocol Humanable: Nameable, Equatable {
     var age: Int { get }
     var sex: Sex { get }
 }
@@ -50,7 +52,8 @@ struct User: Humanable, Workable {
         self.sex = newSex
     }
     
-    mutating func setCompany(to company: String) {
-        self.companyName = company
+    mutating func setCompany(to company: inout Company) {
+        self.companyName = company.name
+        company.addEmployee(self)
     }
 }
