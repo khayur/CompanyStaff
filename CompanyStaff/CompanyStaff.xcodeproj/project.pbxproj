@@ -22,6 +22,7 @@
 		857CF4D92783009D002C7A5A /* CompanyStaffViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857CF4D82783009D002C7A5A /* CompanyStaffViewController.swift */; };
 		857CF4DB278301B2002C7A5A /* UIStoryBoard+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857CF4DA278301B2002C7A5A /* UIStoryBoard+Additions.swift */; };
 		857CF4DD27830318002C7A5A /* UIWindow+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857CF4DC27830318002C7A5A /* UIWindow+Additions.swift */; };
+		857CF4E527830FAD002C7A5A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857CF4E427830FAD002C7A5A /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		857CF4D82783009D002C7A5A /* CompanyStaffViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyStaffViewController.swift; sourceTree = "<group>"; };
 		857CF4DA278301B2002C7A5A /* UIStoryBoard+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryBoard+Additions.swift"; sourceTree = "<group>"; };
 		857CF4DC27830318002C7A5A /* UIWindow+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+Additions.swift"; sourceTree = "<group>"; };
+		857CF4E427830FAD002C7A5A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +185,7 @@
 		857CF4DE27830B41002C7A5A /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				857CF4E027830ECC002C7A5A /* User */,
 				857CF4DF27830B58002C7A5A /* General */,
 			);
 			path = Application;
@@ -196,6 +199,38 @@
 				857CF4C32782F679002C7A5A /* Controller */,
 			);
 			path = General;
+			sourceTree = "<group>";
+		};
+		857CF4E027830ECC002C7A5A /* User */ = {
+			isa = PBXGroup;
+			children = (
+				857CF4E327830EF0002C7A5A /* Model */,
+				857CF4E227830EE2002C7A5A /* View */,
+				857CF4E127830ED5002C7A5A /* Controller */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		857CF4E127830ED5002C7A5A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		857CF4E227830EE2002C7A5A /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		857CF4E327830EF0002C7A5A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				857CF4E427830FAD002C7A5A /* User.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,6 +313,7 @@
 				857CF4D62782FD94002C7A5A /* TabBarController.swift in Sources */,
 				857CF4AA2782F1CC002C7A5A /* AppDelegate.swift in Sources */,
 				857CF4CD2782F9AD002C7A5A /* BaseView.swift in Sources */,
+				857CF4E527830FAD002C7A5A /* User.swift in Sources */,
 				857CF4CF2782FA19002C7A5A /* LoadingView.swift in Sources */,
 				857CF4AC2782F1CC002C7A5A /* SceneDelegate.swift in Sources */,
 				857CF4C02782F4DC002C7A5A /* Constants.swift in Sources */,
