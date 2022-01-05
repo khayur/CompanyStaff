@@ -34,7 +34,7 @@ class BaseViewController: UIViewController {
     //MARK: -HelperMethods
     func createLoadingView() {
         loadingView = LoadingView.instantiate()
-        loadingView.layer.zPosition = 70
+        loadingView.layer.zPosition = 2
         loadingView.frame = view.bounds
         view.addSubview(loadingView)
         loadingView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
