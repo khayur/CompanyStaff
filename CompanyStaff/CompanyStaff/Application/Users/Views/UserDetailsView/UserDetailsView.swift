@@ -22,7 +22,6 @@ class UserDetailsView: UIView, NibLoadableView {
         return rootViewWidth / 1.5
     }
     var height: CGFloat {
-        print(width)
         return width
     }
     

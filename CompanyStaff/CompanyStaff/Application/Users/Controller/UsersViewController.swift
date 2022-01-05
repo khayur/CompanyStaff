@@ -23,6 +23,11 @@ class UsersViewController: BaseViewController {
         fillModelWithData()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        usersTableView.reloadData()
+    }
+    
     //MARK: -HelperMethods
     
     private func configureViewController() {

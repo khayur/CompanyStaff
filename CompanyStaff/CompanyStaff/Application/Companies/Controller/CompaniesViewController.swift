@@ -10,7 +10,7 @@ import UIKit
 class CompaniesViewController: BaseViewController {
     //MARK: -Outlets
     @IBOutlet weak var companiesTableView: UITableView!
-
+    
     @IBOutlet weak var addCompanyButton: UIButton!
     
     //MARK: - Properties
@@ -54,9 +54,20 @@ class CompaniesViewController: BaseViewController {
         self.view.addSubview(newCompanyView)
     }
     
+    //MARK: -EASTER EGG :)
+    private func setDobbyFree(from company: Company) {
+        guard let users = usersDataBase.users else { return }
+        for user in users {
+            if user.company?.name == company.name {
+                user.company = nil
+                print(user)
+            }
+        }
+    }
+    
     //MARK: -Actions
     @IBAction func didPressAddCompanyButton(_ sender: Any) {
-       createNewCompanyView()
+        createNewCompanyView()
     }
 }
 
@@ -76,6 +87,7 @@ extension CompaniesViewController: UITableViewDataSource {
 }
 
 extension CompaniesViewController: UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let vc = UIStoryboard.companyStaff.instantiateViewController(withIdentifier: typeName(CompanyStaffViewController.self)) as? CompanyStaffViewController else { fatalError() }
         self.tabBarController?.tabBar.isHidden = true
@@ -83,11 +95,20 @@ extension CompaniesViewController: UITableViewDelegate {
         vc.companyName = model?.companies?[indexPath.row].name
         navigationController?.pushViewController(vc, animated: true)
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        guard let company = model?.companies?[indexPath.row] else { return }
+        if editingStyle == .delete {
+            model?.companies?.remove(at: indexPath.row)
+            setDobbyFree(from: company)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
 }
 
 extension CompaniesViewController: CompanyStaffDataSource {
     func getUsers(at indexPath: IndexPath) -> [User]? {
-            return model?.companies?[indexPath.row].employees
+        return model?.companies?[indexPath.row].employees
     }
 }
 
