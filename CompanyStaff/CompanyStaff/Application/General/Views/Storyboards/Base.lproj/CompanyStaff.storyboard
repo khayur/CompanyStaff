@@ -61,7 +61,19 @@
                             <constraint firstItem="av2-uo-U8x" firstAttribute="leading" secondItem="mSv-KZ-nvw" secondAttribute="leading" id="z86-DQ-GJp"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="ZQ9-BL-JES"/>
+                    <navigationItem key="navigationItem" id="ZQ9-BL-JES">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="ZAB-mh-HmZ">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="mW6-Oi-P2U">
+                                <rect key="frame" x="302" y="5" width="92" height="34.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="plus.app" catalog="system"/>
+                                <connections>
+                                    <action selector="didPressAddCompanyButton:" destination="dLk-ae-FBf" eventType="touchUpInside" id="iih-hP-HNf"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="companiesTableView" destination="av2-uo-U8x" id="3RS-hL-m4J"/>
@@ -141,7 +153,6 @@
         <!--Companies-->
         <scene sceneID="CSz-WM-cIy">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ff9-rw-Nmq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xzA-hc-kOb" customClass="NavigationController" customModule="CompanyStaff" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Companies" image="building" catalog="system" id="RCr-4X-GU5"/>
                     <toolbarItems/>
@@ -154,6 +165,7 @@
                         <segue destination="dLk-ae-FBf" kind="relationship" relationship="rootViewController" id="LhB-Wh-bKF"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ff9-rw-Nmq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="969.56521739130437" y="430.58035714285711"/>
         </scene>
@@ -161,6 +173,7 @@
     <resources>
         <image name="building" catalog="system" width="112" height="128"/>
         <image name="person" catalog="system" width="128" height="117"/>
+        <image name="plus.app" catalog="system" width="128" height="114"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

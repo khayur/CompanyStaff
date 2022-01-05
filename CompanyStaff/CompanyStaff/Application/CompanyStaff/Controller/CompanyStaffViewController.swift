@@ -27,8 +27,8 @@ class CompanyStaffViewController: BaseViewController, ModelDataSource {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.isHidden = false
     }
+    
     //MARK: -Helper Methods
     private func configureViewController() {
         guard let companyName = model?.first?.company?.name else { return }

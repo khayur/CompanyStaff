@@ -10,6 +10,8 @@
 		85456C33278612E100E1C487 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85456C32278612E100E1C487 /* NavigationController.swift */; };
 		85456C362786139500E1C487 /* UINavigationController+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85456C352786139500E1C487 /* UINavigationController+Additions.swift */; };
 		85456C3827861D0B00E1C487 /* AgeChangerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85456C3727861D0B00E1C487 /* AgeChangerDelegate.swift */; };
+		85456C462786459100E1C487 /* NewCompanyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85456C452786459100E1C487 /* NewCompanyView.swift */; };
+		85456C482786459B00E1C487 /* NewCompanyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85456C472786459B00E1C487 /* NewCompanyView.xib */; };
 		857CF4AA2782F1CC002C7A5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857CF4A92782F1CC002C7A5A /* AppDelegate.swift */; };
 		857CF4AC2782F1CC002C7A5A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857CF4AB2782F1CC002C7A5A /* SceneDelegate.swift */; };
 		857CF4B12782F1CC002C7A5A /* CompanyStaff.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 857CF4AF2782F1CC002C7A5A /* CompanyStaff.storyboard */; };
@@ -51,6 +53,8 @@
 		85456C32278612E100E1C487 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		85456C352786139500E1C487 /* UINavigationController+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Additions.swift"; sourceTree = "<group>"; };
 		85456C3727861D0B00E1C487 /* AgeChangerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeChangerDelegate.swift; sourceTree = "<group>"; };
+		85456C452786459100E1C487 /* NewCompanyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCompanyView.swift; sourceTree = "<group>"; };
+		85456C472786459B00E1C487 /* NewCompanyView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewCompanyView.xib; sourceTree = "<group>"; };
 		857CF4A62782F1CC002C7A5A /* CompanyStaff.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CompanyStaff.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		857CF4A92782F1CC002C7A5A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		857CF4AB2782F1CC002C7A5A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -115,6 +119,15 @@
 				857CF4AF2782F1CC002C7A5A /* CompanyStaff.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		85456C442786457B00E1C487 /* NewCompanyView */ = {
+			isa = PBXGroup;
+			children = (
+				85456C452786459100E1C487 /* NewCompanyView.swift */,
+				85456C472786459B00E1C487 /* NewCompanyView.xib */,
+			);
+			path = NewCompanyView;
 			sourceTree = "<group>";
 		};
 		857CF49D2782F1CC002C7A5A = {
@@ -316,6 +329,7 @@
 		857CF4E8278318CA002C7A5A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				85456C442786457B00E1C487 /* NewCompanyView */,
 				857CF50E2784DCD4002C7A5A /* CompanyTableViewCell */,
 			);
 			path = Views;
@@ -484,6 +498,7 @@
 				857CF5092784AE82002C7A5A /* CompanyTableViewCell.xib in Resources */,
 				857CF4B32782F1CE002C7A5A /* Assets.xcassets in Resources */,
 				857CF4FB2783267B002C7A5A /* UserTableViewCell.xib in Resources */,
+				85456C482786459B00E1C487 /* NewCompanyView.xib in Resources */,
 				857CF503278361B9002C7A5A /* UserDetailsView.xib in Resources */,
 				857CF4B12782F1CC002C7A5A /* CompanyStaff.storyboard in Resources */,
 			);
@@ -523,6 +538,7 @@
 				857CF4AC2782F1CC002C7A5A /* SceneDelegate.swift in Sources */,
 				857CF4EB278318E3002C7A5A /* Company.swift in Sources */,
 				85456C362786139500E1C487 /* UINavigationController+Additions.swift in Sources */,
+				85456C462786459100E1C487 /* NewCompanyView.swift in Sources */,
 				857CF4C02782F4DC002C7A5A /* Constants.swift in Sources */,
 				857CF4FE27832D0A002C7A5A /* UITableView+Additions.swift in Sources */,
 			);

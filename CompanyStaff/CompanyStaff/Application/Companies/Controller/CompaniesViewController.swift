@@ -10,10 +10,12 @@ import UIKit
 class CompaniesViewController: BaseViewController {
     //MARK: -Outlets
     @IBOutlet weak var companiesTableView: UITableView!
+
+    @IBOutlet weak var addCompanyButton: UIBarButtonItem!
     
     //MARK: - Properties
     var model: CompaniesDataBase?
-    
+    var newCompanyView: NewCompanyView!
     //MARK: -Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,25 +26,37 @@ class CompaniesViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = false
-        self.navigationController?.navigationBar.isHidden = true
     }
     
     //MARK: -Helper Methods
-    func configureViewController() {
+    private func configureViewController() {
         configureTableView()
         fillModelWithData()
     }
     
-    func configureTableView() {
+    private func configureTableView() {
         companiesTableView.delegate = self
         companiesTableView.dataSource = self
         companiesTableView.register(CompanyTableViewCell.self)
     }
     
-    func fillModelWithData() {
+    private func fillModelWithData() {
         fillCompaniesDataBase()
         model = companiesDataBase
         companiesTableView.reloadData()
+    }
+    
+    private func createNewCompanyView() {
+        newCompanyView = NewCompanyView.instantiate()
+        newCompanyView.controller = self
+        newCompanyView.configure()
+        newCompanyView.center = CGPoint(x: view.bounds.midX, y: view.bounds.midY)
+        self.view.addSubview(newCompanyView)
+    }
+    
+    //MARK: -Actions
+    @IBAction func didPressAddCompanyButton(_ sender: Any) {
+       createNewCompanyView()
     }
 }
 

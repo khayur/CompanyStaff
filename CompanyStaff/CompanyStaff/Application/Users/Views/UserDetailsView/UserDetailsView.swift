@@ -38,6 +38,6 @@ class UserDetailsView: UIView, NibLoadableView {
     
 //MARK: -Actions
     @IBAction func didPressCloseButton(_ sender: Any) {
-        self.isHidden = true
+        self.removeFromSuperview()
     }
 }
