@@ -35,9 +35,7 @@ class Company: Companyable {
     }
     
     func addEmployee(_ employee: User) {
-        print(employee)
         self.employees?.append(employee)
-        print(self.employees)
     }
     
     //    mutating func deleteEmployee(_ employee: User) {

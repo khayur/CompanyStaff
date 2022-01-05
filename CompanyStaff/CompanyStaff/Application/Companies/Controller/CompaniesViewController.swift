@@ -11,7 +11,7 @@ class CompaniesViewController: BaseViewController {
     //MARK: -Outlets
     @IBOutlet weak var companiesTableView: UITableView!
 
-    @IBOutlet weak var addCompanyButton: UIBarButtonItem!
+    @IBOutlet weak var addCompanyButton: UIButton!
     
     //MARK: - Properties
     var model: CompaniesDataBase?
@@ -75,12 +75,12 @@ extension CompaniesViewController: UITableViewDataSource {
     }
 }
 
-//FIXME: If no users in company?!
 extension CompaniesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let vc = UIStoryboard.companyStaff.instantiateViewController(withIdentifier: typeName(CompanyStaffViewController.self)) as? CompanyStaffViewController else { fatalError() }
         self.tabBarController?.tabBar.isHidden = true
         vc.model = getUsers(at: indexPath)?.sorted(by: { $0.age > $1.age })
+        vc.companyName = model?.companies?[indexPath.row].name
         navigationController?.pushViewController(vc, animated: true)
     }
 }

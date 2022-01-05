@@ -15,6 +15,7 @@ class NewCompanyView: UIView, NibLoadableView {
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var errorLabel: UILabel!
     
 //MARK: -Properties
     var controller: CompaniesViewController?
@@ -23,6 +24,7 @@ class NewCompanyView: UIView, NibLoadableView {
     func configure() {
         self.applyShadow(corner: 15, opacity: 0.5, shadow: 15)
         self.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        errorLabel.isHidden = true
     }
     
     //MARK: -Actions
@@ -31,9 +33,13 @@ class NewCompanyView: UIView, NibLoadableView {
     }
     
     @IBAction func didPressAddButton() {
-       print(companiesDataBase.companies?.count)
-        companiesDataBase.addCompany(Company(name: (nameTextField?.text!)!, employees: []))
+        if let companyName = nameTextField.text, companyName != "" {
+        companiesDataBase.addCompany(Company(name: companyName, employees: []))
         controller?.companiesTableView.reloadData()
-        print(companiesDataBase.companies?.count)
+        self.removeFromSuperview()
+        } else {
+            errorLabel.text = "Please, enter company name"
+            errorLabel.isHidden = false
+        }
     }
 }

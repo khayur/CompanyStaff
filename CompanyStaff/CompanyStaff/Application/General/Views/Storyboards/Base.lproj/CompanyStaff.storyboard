@@ -62,7 +62,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ZQ9-BL-JES">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="ZAB-mh-HmZ">
+                        <barButtonItem key="rightBarButtonItem" id="ZAB-mh-HmZ">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="mW6-Oi-P2U">
                                 <rect key="frame" x="302" y="5" width="92" height="34.5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -76,8 +76,9 @@
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="addCompanyButton" destination="mW6-Oi-P2U" id="mbB-bu-IfP"/>
                         <outlet property="companiesTableView" destination="av2-uo-U8x" id="3RS-hL-m4J"/>
-                        <segue destination="dP0-gh-7Ot" kind="presentation" modalPresentationStyle="fullScreen" id="hS9-Ef-519"/>
+                        <segue destination="dP0-gh-7Ot" kind="presentation" identifier="CompanyStaffSegue" modalPresentationStyle="fullScreen" id="hS9-Ef-519"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UYG-gb-ekr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
