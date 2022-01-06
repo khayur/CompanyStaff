@@ -35,9 +35,9 @@ class CompanyStaffViewController: BaseViewController, ModelDataSource {
         
         if let companyName = companyName {
             if let model = model, !model.isEmpty {
-            titleLabel.text = "Staff of \(companyName)"
+            titleLabel.text = "Staff of '\(companyName)'"
             } else {
-                titleLabel.text = "\(companyName) has no staff"
+                titleLabel.text = "'\(companyName)' has no staff"
             }
         } else {
             titleLabel.text = "Error"
