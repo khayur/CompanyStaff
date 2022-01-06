@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="qIw-ZY-nmB" customClass="NewCompanyView" customModule="CompanyStaff" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="400" height="200"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add new company" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XOA-jJ-GFh">
+                    <rect key="frame" x="0.0" y="15" width="400" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="IGl-rL-MNY">
+                    <rect key="frame" x="20" y="65.5" width="360" height="34"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b3f-TZ-YCg">
+                            <rect key="frame" x="0.0" y="0.0" width="49.5" height="34"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter company name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cv2-s8-lb4">
+                            <rect key="frame" x="69.5" y="0.0" width="290.5" height="34"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                    </subviews>
+                </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="gSR-Fy-K4B">
+                    <rect key="frame" x="81.5" y="133" width="237" height="47"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XpD-Ik-gOG">
+                            <rect key="frame" x="0.0" y="0.0" width="68.5" height="47"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="Cancel"/>
+                            <connections>
+                                <action selector="didPressCancelButton" destination="qIw-ZY-nmB" eventType="touchUpInside" id="hxX-Pz-E6T"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pc2-eK-87o">
+                            <rect key="frame" x="168.5" y="0.0" width="68.5" height="47"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="Add"/>
+                            <connections>
+                                <action selector="didPressAddButton" destination="qIw-ZY-nmB" eventType="touchUpInside" id="UYo-z7-Bvi"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </stackView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e4t-Ga-2MV">
+                    <rect key="frame" x="0.0" y="109.5" width="400" height="13.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                    <color key="textColor" systemColor="systemRedColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="k4E-fa-P5s"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="XOA-jJ-GFh" secondAttribute="trailing" id="2yr-CF-9FT"/>
+                <constraint firstItem="XOA-jJ-GFh" firstAttribute="top" secondItem="qIw-ZY-nmB" secondAttribute="top" constant="15" id="5YJ-zm-yCR"/>
+                <constraint firstItem="k4E-fa-P5s" firstAttribute="trailing" secondItem="IGl-rL-MNY" secondAttribute="trailing" constant="20" id="6yS-rX-kCA"/>
+                <constraint firstItem="k4E-fa-P5s" firstAttribute="trailing" secondItem="e4t-Ga-2MV" secondAttribute="trailing" id="Dc3-pY-mQr"/>
+                <constraint firstItem="IGl-rL-MNY" firstAttribute="top" secondItem="XOA-jJ-GFh" secondAttribute="bottom" constant="30" id="Eb8-6w-EtJ"/>
+                <constraint firstItem="e4t-Ga-2MV" firstAttribute="top" secondItem="IGl-rL-MNY" secondAttribute="bottom" constant="10" id="Edz-hb-qct"/>
+                <constraint firstItem="XOA-jJ-GFh" firstAttribute="leading" secondItem="qIw-ZY-nmB" secondAttribute="leading" id="Glo-5B-f1K"/>
+                <constraint firstItem="k4E-fa-P5s" firstAttribute="bottom" secondItem="gSR-Fy-K4B" secondAttribute="bottom" constant="20" id="QXH-Dq-p0h"/>
+                <constraint firstItem="e4t-Ga-2MV" firstAttribute="leading" secondItem="k4E-fa-P5s" secondAttribute="leading" id="YZo-tu-MGH"/>
+                <constraint firstItem="gSR-Fy-K4B" firstAttribute="centerX" secondItem="qIw-ZY-nmB" secondAttribute="centerX" id="Zmt-4Z-Wv9"/>
+                <constraint firstItem="IGl-rL-MNY" firstAttribute="leading" secondItem="k4E-fa-P5s" secondAttribute="leading" constant="20" id="hhE-qA-kAC"/>
+                <constraint firstItem="XOA-jJ-GFh" firstAttribute="centerX" secondItem="qIw-ZY-nmB" secondAttribute="centerX" id="iuA-Y0-EhX"/>
+                <constraint firstItem="gSR-Fy-K4B" firstAttribute="top" secondItem="e4t-Ga-2MV" secondAttribute="bottom" constant="10" id="lpc-Sa-X8G"/>
+                <constraint firstItem="e4t-Ga-2MV" firstAttribute="centerX" secondItem="qIw-ZY-nmB" secondAttribute="centerX" id="rIZ-gN-xI2"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="addButton" destination="pc2-eK-87o" id="5qd-cm-ZcU"/>
+                <outlet property="cancelButton" destination="XpD-Ik-gOG" id="LnS-jW-5mJ"/>
+                <outlet property="errorLabel" destination="e4t-Ga-2MV" id="4OG-m0-rhb"/>
+                <outlet property="nameLabel" destination="b3f-TZ-YCg" id="VOZ-Mf-i3M"/>
+                <outlet property="nameTextField" destination="cv2-s8-lb4" id="LvN-Xq-G1V"/>
+                <outlet property="titleLabel" destination="XOA-jJ-GFh" id="7X2-oV-RmF"/>
+            </connections>
+            <point key="canvasLocation" x="-7.2463768115942031" y="80.357142857142847"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

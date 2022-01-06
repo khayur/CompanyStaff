@@ -17,6 +17,7 @@ class CompanyStaffViewController: BaseViewController, ModelDataSource {
     
     //MARK: -Properties
     var model: [User]?
+    var companyName: String?
     var dataSource: CompanyStaffDataSource?
     
     //MARK: -Lifecycle
@@ -27,12 +28,21 @@ class CompanyStaffViewController: BaseViewController, ModelDataSource {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.isHidden = false
     }
+    
     //MARK: -Helper Methods
     private func configureViewController() {
-        guard let companyName = model?.first?.company?.name else { return }
-        titleLabel.text = "Staff of \(companyName)"
+        
+        if let companyName = companyName {
+            if let model = model, !model.isEmpty {
+            titleLabel.text = "Staff of '\(companyName)'"
+            } else {
+                titleLabel.text = "'\(companyName)' has no staff"
+            }
+        } else {
+            titleLabel.text = "Error"
+        }
+        
         configureTableView()
     }
     

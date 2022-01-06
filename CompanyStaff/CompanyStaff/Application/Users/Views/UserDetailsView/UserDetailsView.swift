@@ -22,7 +22,6 @@ class UserDetailsView: UIView, NibLoadableView {
         return rootViewWidth / 1.5
     }
     var height: CGFloat {
-        print(width)
         return width
     }
     
@@ -38,6 +37,6 @@ class UserDetailsView: UIView, NibLoadableView {
     
 //MARK: -Actions
     @IBAction func didPressCloseButton(_ sender: Any) {
-        self.isHidden = true
+        self.removeFromSuperview()
     }
 }

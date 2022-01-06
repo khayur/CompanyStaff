@@ -11,9 +11,11 @@ class CompaniesViewController: BaseViewController {
     //MARK: -Outlets
     @IBOutlet weak var companiesTableView: UITableView!
     
+    @IBOutlet weak var addCompanyButton: UIButton!
+    
     //MARK: - Properties
     var model: CompaniesDataBase?
-    
+    var newCompanyView: NewCompanyView!
     //MARK: -Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,25 +26,48 @@ class CompaniesViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = false
-        self.navigationController?.navigationBar.isHidden = true
     }
     
     //MARK: -Helper Methods
-    func configureViewController() {
+    private func configureViewController() {
         configureTableView()
         fillModelWithData()
     }
     
-    func configureTableView() {
+    private func configureTableView() {
         companiesTableView.delegate = self
         companiesTableView.dataSource = self
         companiesTableView.register(CompanyTableViewCell.self)
     }
     
-    func fillModelWithData() {
+    private func fillModelWithData() {
         fillCompaniesDataBase()
         model = companiesDataBase
         companiesTableView.reloadData()
+    }
+    
+    private func createNewCompanyView() {
+        newCompanyView = NewCompanyView.instantiate()
+        newCompanyView.controller = self
+        newCompanyView.configure()
+        newCompanyView.center = CGPoint(x: view.bounds.midX, y: view.bounds.midY)
+        self.view.addSubview(newCompanyView)
+    }
+    
+    //MARK: -EASTER EGG :)
+    private func setDobbyFree(from company: Company) {
+        guard let users = usersDataBase.users else { return }
+        for user in users {
+            if user.company?.name == company.name {
+                user.company = nil
+                print(user)
+            }
+        }
+    }
+    
+    //MARK: -Actions
+    @IBAction func didPressAddCompanyButton(_ sender: Any) {
+        createNewCompanyView()
     }
 }
 
@@ -62,17 +87,28 @@ extension CompaniesViewController: UITableViewDataSource {
 }
 
 extension CompaniesViewController: UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let vc = UIStoryboard.companyStaff.instantiateViewController(withIdentifier: typeName(CompanyStaffViewController.self)) as? CompanyStaffViewController else { fatalError() }
         self.tabBarController?.tabBar.isHidden = true
-        vc.model = getUsers(at: indexPath)
+        vc.model = getUsers(at: indexPath)?.sorted(by: { $0.age > $1.age })
+        vc.companyName = model?.companies?[indexPath.row].name
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        guard let company = model?.companies?[indexPath.row] else { return }
+        if editingStyle == .delete {
+            model?.companies?.remove(at: indexPath.row)
+            setDobbyFree(from: company)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
     }
 }
 
 extension CompaniesViewController: CompanyStaffDataSource {
     func getUsers(at indexPath: IndexPath) -> [User]? {
-            return model?.companies?[indexPath.row].employees
+        return model?.companies?[indexPath.row].employees
     }
 }
 
