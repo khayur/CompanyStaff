@@ -9,7 +9,13 @@ import UIKit
 
 class UsersViewController: BaseViewController {
     //MARK: -Outlets
-    @IBOutlet weak var usersTableView: UITableView!
+    @IBOutlet weak var usersTableView: UITableView! {
+        didSet {
+            usersTableView.delegate = self
+            usersTableView.dataSource = self
+            usersTableView.register(UserTableViewCell.self)
+        }
+    }
     
     //MARK: -Properties
     private var userDetailsView: UserDetailsView!
@@ -19,7 +25,6 @@ class UsersViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewController()
-        configureTableView()
         fillModelWithData()
     }
     
@@ -33,12 +38,7 @@ class UsersViewController: BaseViewController {
     private func configureViewController() {
         
     }
-    
-    private func configureTableView() {
-        usersTableView.delegate = self
-        usersTableView.dataSource = self
-        usersTableView.register(UserTableViewCell.self)
-    }
+
     
     private func fillModelWithData() {
         fillUsersDataBase()

@@ -47,6 +47,10 @@
 		857CF5192784E23E002C7A5A /* CompanyStaffTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 857CF5172784E23E002C7A5A /* CompanyStaffTableViewCell.xib */; };
 		857CF51B2784FCB0002C7A5A /* CompanyStaffDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857CF51A2784FCB0002C7A5A /* CompanyStaffDataSource.swift */; };
 		857CF51F27850699002C7A5A /* ModelDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857CF51E27850699002C7A5A /* ModelDataSource.swift */; };
+		85A4A0052787639000843699 /* NewCompanyEmployeeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A4A0042787639000843699 /* NewCompanyEmployeeView.swift */; };
+		85A4A0072787639B00843699 /* NewCompanyEmployeeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85A4A0062787639B00843699 /* NewCompanyEmployeeView.xib */; };
+		85A4A00B278769F900843699 /* NewCompanyEmployeeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A4A009278769F900843699 /* NewCompanyEmployeeTableViewCell.swift */; };
+		85A4A00C278769F900843699 /* NewCompanyEmployeeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85A4A00A278769F900843699 /* NewCompanyEmployeeTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,6 +96,10 @@
 		857CF5172784E23E002C7A5A /* CompanyStaffTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompanyStaffTableViewCell.xib; sourceTree = "<group>"; };
 		857CF51A2784FCB0002C7A5A /* CompanyStaffDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyStaffDataSource.swift; sourceTree = "<group>"; };
 		857CF51E27850699002C7A5A /* ModelDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelDataSource.swift; sourceTree = "<group>"; };
+		85A4A0042787639000843699 /* NewCompanyEmployeeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCompanyEmployeeView.swift; sourceTree = "<group>"; };
+		85A4A0062787639B00843699 /* NewCompanyEmployeeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewCompanyEmployeeView.xib; sourceTree = "<group>"; };
+		85A4A009278769F900843699 /* NewCompanyEmployeeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCompanyEmployeeTableViewCell.swift; sourceTree = "<group>"; };
+		85A4A00A278769F900843699 /* NewCompanyEmployeeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewCompanyEmployeeTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -419,6 +427,8 @@
 		857CF5142784E1F8002C7A5A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				85A4A008278769BC00843699 /* NewCompanyEmployeeTableViewCell */,
+				85A4A0032787633E00843699 /* NewCompanyEmployeeView */,
 				857CF5152784E1FE002C7A5A /* CompanyStaffTableViewCell */,
 			);
 			path = Views;
@@ -431,6 +441,24 @@
 				857CF5172784E23E002C7A5A /* CompanyStaffTableViewCell.xib */,
 			);
 			path = CompanyStaffTableViewCell;
+			sourceTree = "<group>";
+		};
+		85A4A0032787633E00843699 /* NewCompanyEmployeeView */ = {
+			isa = PBXGroup;
+			children = (
+				85A4A0042787639000843699 /* NewCompanyEmployeeView.swift */,
+				85A4A0062787639B00843699 /* NewCompanyEmployeeView.xib */,
+			);
+			path = NewCompanyEmployeeView;
+			sourceTree = "<group>";
+		};
+		85A4A008278769BC00843699 /* NewCompanyEmployeeTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				85A4A009278769F900843699 /* NewCompanyEmployeeTableViewCell.swift */,
+				85A4A00A278769F900843699 /* NewCompanyEmployeeTableViewCell.xib */,
+			);
+			path = NewCompanyEmployeeTableViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -498,6 +526,8 @@
 				857CF5092784AE82002C7A5A /* CompanyTableViewCell.xib in Resources */,
 				857CF4B32782F1CE002C7A5A /* Assets.xcassets in Resources */,
 				857CF4FB2783267B002C7A5A /* UserTableViewCell.xib in Resources */,
+				85A4A0072787639B00843699 /* NewCompanyEmployeeView.xib in Resources */,
+				85A4A00C278769F900843699 /* NewCompanyEmployeeTableViewCell.xib in Resources */,
 				85456C482786459B00E1C487 /* NewCompanyView.xib in Resources */,
 				857CF503278361B9002C7A5A /* UserDetailsView.xib in Resources */,
 				857CF4B12782F1CC002C7A5A /* CompanyStaff.storyboard in Resources */,
@@ -515,6 +545,7 @@
 				85456C3827861D0B00E1C487 /* AgeChangerDelegate.swift in Sources */,
 				857CF4DD27830318002C7A5A /* UIWindow+Additions.swift in Sources */,
 				857CF4CA2782F82A002C7A5A /* UIView+Additions.swift in Sources */,
+				85A4A00B278769F900843699 /* NewCompanyEmployeeTableViewCell.swift in Sources */,
 				857CF4ED278321C0002C7A5A /* UsersViewController.swift in Sources */,
 				857CF5082784AE82002C7A5A /* CompanyTableViewCell.swift in Sources */,
 				857CF4DB278301B2002C7A5A /* UIStoryBoard+Additions.swift in Sources */,
@@ -535,6 +566,7 @@
 				857CF4E527830FAD002C7A5A /* User.swift in Sources */,
 				857CF5132784DFE9002C7A5A /* CompanyStaffViewController.swift in Sources */,
 				857CF4CF2782FA19002C7A5A /* LoadingView.swift in Sources */,
+				85A4A0052787639000843699 /* NewCompanyEmployeeView.swift in Sources */,
 				857CF4AC2782F1CC002C7A5A /* SceneDelegate.swift in Sources */,
 				857CF4EB278318E3002C7A5A /* Company.swift in Sources */,
 				85456C362786139500E1C487 /* UINavigationController+Additions.swift in Sources */,

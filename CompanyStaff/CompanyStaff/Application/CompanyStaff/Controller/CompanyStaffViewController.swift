@@ -11,14 +11,22 @@ class CompanyStaffViewController: BaseViewController, ModelDataSource {
     
 //MARK: -Outlets
 
-    @IBOutlet weak var companyStaffTableView: UITableView!
+    @IBOutlet weak var companyStaffTableView: UITableView! {
+        didSet {
+            companyStaffTableView.delegate = self
+            companyStaffTableView.dataSource = self
+            companyStaffTableView.register(CompanyStaffTableViewCell.self)
+        }
+    }
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var addNewUserButton: UIButton!
     
     
     //MARK: -Properties
     var model: [User]?
     var companyName: String?
     var dataSource: CompanyStaffDataSource?
+    var newCompanyEmployeeView: NewCompanyEmployeeView!
     
     //MARK: -Lifecycle
     override func viewDidLoad() {
@@ -42,14 +50,6 @@ class CompanyStaffViewController: BaseViewController, ModelDataSource {
         } else {
             titleLabel.text = "Error"
         }
-        
-        configureTableView()
-    }
-    
-    private func configureTableView() {
-        companyStaffTableView.delegate = self
-        companyStaffTableView.dataSource = self
-        companyStaffTableView.register(CompanyStaffTableViewCell.self)
     }
     
     private func configureCell(cell: CompanyStaffTableViewCell, at indexPath: IndexPath) {
@@ -57,6 +57,32 @@ class CompanyStaffViewController: BaseViewController, ModelDataSource {
         cell.ageChanger = self
         cell.modelItem = user
         cell.configure()
+    }
+    
+    private func createNewCompanyEmployeeView() {
+        newCompanyEmployeeView = NewCompanyEmployeeView.instantiate()
+        newCompanyEmployeeView.configure()
+        newCompanyEmployeeView.center = CGPoint(x: view.bounds.midX, y: view.bounds.midY)
+        newCompanyEmployeeView.applyShadow(corner: 4)
+        
+        guard let companyName = companyName else { return }
+        newCompanyEmployeeView.companyNameLabel.text = companyName
+        self.view.addSubview(newCompanyEmployeeView)
+    }
+    
+    private func fireEmployee(_ user: User) {
+        guard let companies = companiesDataBase.companies else { return }
+        for company in companies {
+            if user.company?.name == company.name {
+                company.deleteEmployee(user)
+            }
+        }
+        user.company = nil
+    }
+    
+    //MARK: -Actions
+    @IBAction func didPressAddNewUserButton(_ sender: Any) {
+        createNewCompanyEmployeeView()
     }
 }
 
@@ -76,7 +102,15 @@ extension CompanyStaffViewController: UITableViewDataSource {
 }
 
 extension CompanyStaffViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        guard let user = model?[indexPath.row] else { return }
+        if editingStyle == .delete {
+            model?.remove(at: indexPath.row)
+            fireEmployee(user)
+            user.company = nil
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
 }
 
 extension CompanyStaffViewController: AgeChangerDelegate {

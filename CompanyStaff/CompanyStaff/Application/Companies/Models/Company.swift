@@ -14,7 +14,11 @@ protocol Companyable: Nameable {
 class Company: Companyable {
     //MARK: -Properties
     var name: String
-    var employees: [User]? = []
+    var employees: [User]? {
+        didSet {
+            self.employees = employees?.sorted(by: { $0.age > $1.age })
+        }
+    }
     
     //MARK: -Initializers
     init(name: String,
@@ -38,22 +42,25 @@ class Company: Companyable {
         self.employees?.append(employee)
     }
     
-    //    mutating func deleteEmployee(_ employee: User) {
-    //        guard let employees = employees else { return }
-    //            if employees.contains(where: { employee in
-    //                for employee in employees {
-    //                    if employee.name == employee.name {
-    //                        return true
-    //                    }
-    //                    return false
-    //                }
-    //            }) {
-    //            guard let index = employees.firstIndex(of: employee) else { return }
-    //            self.employees?.remove(at: index)
-    //        } else {
-    //#if DEBUG
-    //            print("There is no such employee")
-    //#endif
-    //        }
-    //    }
+    func deleteEmployee(_ employee: User) {
+        guard let employees = employees,
+        !employees.isEmpty
+        else { return }
+        
+        let index = employees.firstIndex { user in
+            for (_, element) in employees.enumerated() {
+                if  user.name == element.name {
+                    return true
+                }
+            }
+            return false
+        }
+        
+        guard let index = index else {
+            return
+        }
+        
+        self.employees?.remove(at: index)
+
+    }
 }

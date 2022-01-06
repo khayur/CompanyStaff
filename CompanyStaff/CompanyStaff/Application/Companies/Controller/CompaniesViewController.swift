@@ -9,7 +9,13 @@ import UIKit
 
 class CompaniesViewController: BaseViewController {
     //MARK: -Outlets
-    @IBOutlet weak var companiesTableView: UITableView!
+    @IBOutlet weak var companiesTableView: UITableView! {
+        didSet {
+            companiesTableView.delegate = self
+            companiesTableView.dataSource = self
+            companiesTableView.register(CompanyTableViewCell.self)
+        }
+    }
     
     @IBOutlet weak var addCompanyButton: UIButton!
     
@@ -25,19 +31,12 @@ class CompaniesViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.tabBarController?.tabBar.isHidden = false
+//        self.tabBarController?.tabBar.isHidden = false
     }
     
     //MARK: -Helper Methods
     private func configureViewController() {
-        configureTableView()
         fillModelWithData()
-    }
-    
-    private func configureTableView() {
-        companiesTableView.delegate = self
-        companiesTableView.dataSource = self
-        companiesTableView.register(CompanyTableViewCell.self)
     }
     
     private func fillModelWithData() {
@@ -55,7 +54,7 @@ class CompaniesViewController: BaseViewController {
     }
     
     //MARK: -EASTER EGG :)
-    private func setDobbyFree(from company: Company) {
+    private func setDobbiesFree(from company: Company) {
         guard let users = usersDataBase.users else { return }
         for user in users {
             if user.company?.name == company.name {
@@ -90,8 +89,8 @@ extension CompaniesViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let vc = UIStoryboard.companyStaff.instantiateViewController(withIdentifier: typeName(CompanyStaffViewController.self)) as? CompanyStaffViewController else { fatalError() }
-        self.tabBarController?.tabBar.isHidden = true
-        vc.model = getUsers(at: indexPath)?.sorted(by: { $0.age > $1.age })
+//        self.tabBarController?.tabBar.isHidden = true
+        vc.model = getUsers(at: indexPath)
         vc.companyName = model?.companies?[indexPath.row].name
         navigationController?.pushViewController(vc, animated: true)
     }
@@ -100,7 +99,7 @@ extension CompaniesViewController: UITableViewDelegate {
         guard let company = model?.companies?[indexPath.row] else { return }
         if editingStyle == .delete {
             model?.companies?.remove(at: indexPath.row)
-            setDobbyFree(from: company)
+            setDobbiesFree(from: company)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
