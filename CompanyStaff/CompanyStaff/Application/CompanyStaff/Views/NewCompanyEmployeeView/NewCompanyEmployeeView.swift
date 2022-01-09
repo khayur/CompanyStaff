@@ -37,7 +37,6 @@ class NewCompanyEmployeeView: UIView, NibLoadableView, OptionsView {
     @IBAction func didPressCloseViewButton(_ sender: Any) {
         self.removeFromSuperview()
     }
-    
 }
 
 //MARK: -Extensions

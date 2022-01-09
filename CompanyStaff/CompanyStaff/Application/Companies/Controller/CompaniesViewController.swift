@@ -29,10 +29,6 @@ class CompaniesViewController: BaseViewController {
         configureViewController()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-    
     //MARK: -Helper Methods
     private func configureViewController() {
         fillModelWithData()
@@ -83,8 +79,7 @@ class CompaniesViewController: BaseViewController {
 //MARK: -Extensions
 extension CompaniesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let companies = model?.companies else { return 1 }
-        return companies.count
+        return model?.companies?.count ?? 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

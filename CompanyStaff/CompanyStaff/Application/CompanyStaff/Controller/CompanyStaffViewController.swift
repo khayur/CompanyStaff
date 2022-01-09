@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CompanyStaffViewController: BaseViewController, ModelDataSource {
+class CompanyStaffViewController: BaseViewController {
     
     //MARK: -Outlets
     
@@ -25,7 +25,6 @@ class CompanyStaffViewController: BaseViewController, ModelDataSource {
     //MARK: -Properties
     var model: [User]?
     var companyName: String?
-    var dataSource: CompanyStaffDataSource?
     var optionsView: OptionsView!
     var newCompanyEmployeeView: NewCompanyEmployeeView!
     var newUserView: NewUserView!
@@ -56,13 +55,7 @@ class CompanyStaffViewController: BaseViewController, ModelDataSource {
             titleLabel.text = "Error"
         }
     }
-    private func configureCell(cell: CompanyStaffTableViewCell, at indexPath: IndexPath) {
-        guard let user = model?[indexPath.row] else { return }
-        cell.ageChanger = self
-        cell.modelItem = user
-        cell.configure()
-    }
-    
+
      func showOptionsView(as type: OptionsView.Type) {
         switch type {
         case is NewCompanyEmployeeView.Type :
@@ -77,11 +70,8 @@ class CompanyStaffViewController: BaseViewController, ModelDataSource {
     private func createNewCompanyEmployeeView() {
         newCompanyEmployeeView = NewCompanyEmployeeView.instantiate()
         newCompanyEmployeeView.configure()
-        
-
         newCompanyEmployeeView.center = CGPoint(x: view.bounds.midX, y: view.bounds.midY)
         newCompanyEmployeeView.applyShadow(corner: 4)
-        
         guard let companyName = companyName else { return }
         newCompanyEmployeeView.companyNameLabel.text = companyName
         newCompanyEmployeeView.controller = self
@@ -110,7 +100,7 @@ class CompanyStaffViewController: BaseViewController, ModelDataSource {
     }
     
      func getCompany(named companyName: String) -> Company? {
-        guard let companies = companiesDataBase.companies else { fatalError() }
+        guard let companies = companiesDataBase.companies else { return nil }
         for company in companies {
             if company.name == companyName {
                 return company
@@ -130,21 +120,26 @@ class CompanyStaffViewController: BaseViewController, ModelDataSource {
     @IBAction func didPressAddNewUserButton(_ sender: Any) {
         showOptionsView(as: NewCompanyEmployeeView.self)
     }
-    
 }
 
 //MARK: -Extensions
 
 extension CompanyStaffViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let rows = model?.count else { return 1 }
-        return rows
+        return model?.count ?? 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as CompanyStaffTableViewCell
         configureCell(cell: cell, at: indexPath)
         return cell
+    }
+    
+    private func configureCell(cell: CompanyStaffTableViewCell, at indexPath: IndexPath) {
+        guard let user = model?[indexPath.row] else { return }
+        cell.ageChanger = self
+        cell.modelItem = user
+        cell.configure()
     }
 }
 

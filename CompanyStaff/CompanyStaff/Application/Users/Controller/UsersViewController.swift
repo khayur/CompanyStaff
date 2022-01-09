@@ -25,7 +25,6 @@ class UsersViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewController()
-        fillModelWithData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,9 +33,8 @@ class UsersViewController: BaseViewController {
     }
     
     //MARK: -HelperMethods
-    
     private func configureViewController() {
-        
+        fillModelWithData()
     }
 
     private func fillModelWithData() {
@@ -68,8 +66,7 @@ class UsersViewController: BaseViewController {
 //MARK: -Extensions
 extension UsersViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let users = model?.users else { return 1 }
-        return users.count
+        return model?.users?.count ?? 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
