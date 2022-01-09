@@ -18,19 +18,25 @@ class UsersDataBase {
     //MARK: -Methods
     func addUser(_ user: User) {
         self.users?.append(user)
-        
-            guard let companies = companiesDataBase.companies,
-                  let userCompanyName = user.company?.name
-            else { return }
-            for company in companies {
-                if userCompanyName  == company.name {
-                    company.addEmployee(user)
-                }
-            }
-        }
+        synchronizeWithCompaniesDataBase(for: user)
+    }
     
     func addUsers(_ users: [User]) {
         self.users?.append(contentsOf: users)
+        for user in users {
+            synchronizeWithCompaniesDataBase(for: user)
+        }
+    }
+    
+    private func synchronizeWithCompaniesDataBase(for user: User){
+        guard let companies = companiesDataBase.companies,
+              let userCompanyName = user.company?.name
+        else { return }
+        for company in companies {
+            if userCompanyName  == company.name {
+                company.addEmployee(user)
+            }
+        }
     }
 }
 
