@@ -15,6 +15,8 @@ func getErrorLabelText(forCode error: Int) -> String {
         return "Age must contain only numbers"
     case 3:
         return "Choose sex"
+    case 4:
+        return "This company already exists"
     default:
         return "Unknown error"
     }

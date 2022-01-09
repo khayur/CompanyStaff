@@ -42,7 +42,10 @@ class CompanyStaffViewController: BaseViewController, ModelDataSource {
     
     //MARK: -Helper Methods
     private func configureViewController() {
-        
+        configureTitleLabel()
+    }
+    
+    private func configureTitleLabel() {
         if let companyName = companyName {
             if let model = model, !model.isEmpty {
                 titleLabel.text = "Staff of '\(companyName)'"
@@ -53,7 +56,6 @@ class CompanyStaffViewController: BaseViewController, ModelDataSource {
             titleLabel.text = "Error"
         }
     }
-    
     private func configureCell(cell: CompanyStaffTableViewCell, at indexPath: IndexPath) {
         guard let user = model?[indexPath.row] else { return }
         cell.ageChanger = self
@@ -121,6 +123,7 @@ class CompanyStaffViewController: BaseViewController, ModelDataSource {
         guard let companyName = companyName else { return }
         let company = getCompany(named: companyName)
         self.model = company?.employees
+        configureTitleLabel()
     }
     
     //MARK: -Actions
@@ -153,6 +156,7 @@ extension CompanyStaffViewController: UITableViewDelegate {
             fireEmployee(user)
             user.company = nil
             tableView.deleteRows(at: [indexPath], with: .fade)
+            configureTitleLabel()
         }
     }
 }

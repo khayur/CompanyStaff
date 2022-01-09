@@ -8,7 +8,7 @@
 import UIKit
 
 class NewCompanyView: UIView, NibLoadableView {
-//MARK: -Outlets
+    //MARK: -Outlets
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var cancelButton: UIButton!
@@ -17,7 +17,7 @@ class NewCompanyView: UIView, NibLoadableView {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var errorLabel: UILabel!
     
-//MARK: -Properties
+    //MARK: -Properties
     var controller: CompaniesViewController?
     
     //MARK: -Methods
@@ -27,19 +27,37 @@ class NewCompanyView: UIView, NibLoadableView {
         errorLabel.isHidden = true
     }
     
+    private func isEnteredDataCorrect() -> Bool {
+        errorLabel.isHidden = true
+        
+        if nameTextField.text == "" {
+            errorLabel.text = getErrorLabelText(forCode: 1)
+            errorLabel.isHidden = false
+            return false
+        }
+        
+        if let companyName = nameTextField.text,
+           let controller = controller,
+           !controller.isCompanyUnique(company: companyName) {
+            errorLabel.text = getErrorLabelText(forCode: 4)
+            errorLabel.isHidden = false
+            return false
+        }
+        
+        return true
+    }
+    
     //MARK: -Actions
     @IBAction func didPressCancelButton() {
         self.removeFromSuperview()
     }
     
     @IBAction func didPressAddButton() {
-        if let companyName = nameTextField.text, companyName != "" {
-        companiesDataBase.addCompany(Company(name: companyName, employees: []))
-        controller?.companiesTableView.reloadData()
-        self.removeFromSuperview()
-        } else {
-            errorLabel.text = getErrorLabelText(forCode: 1)
-            errorLabel.isHidden = false
+        if let companyName = nameTextField.text,
+           isEnteredDataCorrect() {
+            companiesDataBase.addCompany(Company(name: companyName, employees: []))
+            controller?.companiesTableView.reloadData()
+            self.removeFromSuperview()
         }
     }
 }

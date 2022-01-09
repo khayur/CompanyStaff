@@ -63,6 +63,17 @@ class CompaniesViewController: BaseViewController {
         }
     }
     
+    func isCompanyUnique(company name: String) -> Bool {
+        guard let companies = model?.companies else { return true }
+        var answer = true
+        for company in companies {
+            if company.name == name {
+                answer = false
+            }
+        }
+        return answer
+    }
+    
     //MARK: -Actions
     @IBAction func didPressAddCompanyButton(_ sender: Any) {
         createNewCompanyView()
