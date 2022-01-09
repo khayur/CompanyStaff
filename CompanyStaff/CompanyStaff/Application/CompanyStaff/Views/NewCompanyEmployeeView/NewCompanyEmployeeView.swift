@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NewCompanyEmployeeView: UIView, NibLoadableView {
+class NewCompanyEmployeeView: UIView, NibLoadableView, OptionsView {
     
 //MARK: -Outlets
     @IBOutlet weak var companyNameLabel: UILabel!
@@ -21,8 +21,12 @@ class NewCompanyEmployeeView: UIView, NibLoadableView {
     @IBOutlet weak var closeViewButton: UIButton!
     
     //MARK: -Properties
+    static var optionsViewName = typeName(self)
     let numberOfRowsInSection = 1
-    var menuOptions = ["Add existing unemployed user", "Add new user"]
+    var menuOptions = ["Add existing unemployed user (soon)", "Add new user"]
+    var newUserView: NewUserView!
+    var controller: CompanyStaffViewController?
+    
     
     //MARK: -Methods
     func configure() {
@@ -36,10 +40,7 @@ class NewCompanyEmployeeView: UIView, NibLoadableView {
     
 }
 
-extension NewCompanyEmployeeView: UITableViewDelegate {
-    
-}
-
+//MARK: -Extensions
 extension NewCompanyEmployeeView: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -62,5 +63,13 @@ extension NewCompanyEmployeeView: UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         10
+    }
+}
+
+extension NewCompanyEmployeeView: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 1  {
+            controller?.showOptionsView(as: NewUserView.self)
+        }
     }
 }

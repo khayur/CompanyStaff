@@ -27,11 +27,14 @@ class UserDetailsView: UIView, NibLoadableView {
     
     //MARK: -Methods
     func configure() {
+        let safetyView = UIView(frame: superview?.bounds ?? CGRect(x: 0, y: 0, width: 600, height: 600))
+        
         self.backgroundColor = UIColor(red: 187, green: 187, blue: 187, alpha: 1)
         self.layer.zPosition = 3
         self.frame = CGRect(x: 0, y: 0, width: width, height: height)
         self.applyShadow(corner: 15, opacity: 0.5, shadow: 15)
         self.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        safetyView.addSubview(self)
     }
     
     

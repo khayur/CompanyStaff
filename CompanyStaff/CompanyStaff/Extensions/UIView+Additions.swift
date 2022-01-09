@@ -51,3 +51,7 @@ extension ReusableView where Self: UIView {
         return NSStringFromClass(self)
     }
 }
+
+protocol OptionsView: AnyObject {
+    static var optionsViewName: String { get }
+}

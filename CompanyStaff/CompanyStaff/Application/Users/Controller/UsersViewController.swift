@@ -39,11 +39,29 @@ class UsersViewController: BaseViewController {
         
     }
 
-    
     private func fillModelWithData() {
         fillUsersDataBase()
         model = usersDataBase
         usersTableView.reloadData()
+    }
+    
+    private func createUserDetailsView(for indexPath: IndexPath) {
+        userDetailsView = UserDetailsView.instantiate()
+        userDetailsView.configure()
+        userDetailsView.tag = 111
+        guard let users = model?.users else { return }
+        let modelItem = users[indexPath.row]
+        userDetailsView.nameLabel.text = modelItem.name
+        userDetailsView.ageLabel.text = String(modelItem.age)
+        userDetailsView.sexLabel.text = modelItem.sex.rawValue
+        userDetailsView.companyNameLabel.text = modelItem.company?.name ?? "Unemployed"
+        userDetailsView.center = CGPoint(x: view.bounds.midX, y: view.bounds.midY)
+        if let taggedView = view.viewWithTag(111) {
+            taggedView.removeFromSuperview()
+            view.addSubview(userDetailsView)
+        } else {
+            view.addSubview(userDetailsView)
+        }
     }
 }
 
@@ -64,18 +82,8 @@ extension UsersViewController: UITableViewDataSource {
     }
 }
 
-//TODO: Restrict user interaction with table view while detailsView is presenting
 extension UsersViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        userDetailsView = UserDetailsView.instantiate()
-        userDetailsView.configure()
-        guard let users = model?.users else { return }
-        let modelItem = users[indexPath.row]
-        userDetailsView.nameLabel.text = modelItem.name
-        userDetailsView.ageLabel.text = String(modelItem.age)
-        userDetailsView.sexLabel.text = modelItem.sex.rawValue
-        userDetailsView.companyNameLabel.text = modelItem.company?.name ?? "Unemployed"
-        userDetailsView.center = CGPoint(x: view.bounds.midX, y: view.bounds.midY)
-        view.addSubview(userDetailsView)
+        createUserDetailsView(for: indexPath)
     }
 }

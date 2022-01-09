@@ -169,6 +169,7 @@
         <!--Companies-->
         <scene sceneID="CSz-WM-cIy">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ff9-rw-Nmq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xzA-hc-kOb" customClass="NavigationController" customModule="CompanyStaff" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Companies" image="building" catalog="system" id="RCr-4X-GU5"/>
                     <toolbarItems/>
@@ -181,7 +182,6 @@
                         <segue destination="dLk-ae-FBf" kind="relationship" relationship="rootViewController" id="LhB-Wh-bKF"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ff9-rw-Nmq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="969.56521739130437" y="430.58035714285711"/>
         </scene>

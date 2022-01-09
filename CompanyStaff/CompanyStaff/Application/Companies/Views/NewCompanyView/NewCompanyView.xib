@@ -37,10 +37,10 @@
                     </subviews>
                 </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="gSR-Fy-K4B">
-                    <rect key="frame" x="81.5" y="133" width="237" height="47"/>
+                    <rect key="frame" x="81.5" y="133" width="237" height="31"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XpD-Ik-gOG">
-                            <rect key="frame" x="0.0" y="0.0" width="68.5" height="47"/>
+                            <rect key="frame" x="0.0" y="0.0" width="68.5" height="31"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title="Cancel"/>
                             <connections>
@@ -48,7 +48,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pc2-eK-87o">
-                            <rect key="frame" x="168.5" y="0.0" width="68.5" height="47"/>
+                            <rect key="frame" x="168.5" y="0.0" width="68.5" height="31"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title="Add"/>
                             <connections>
@@ -74,7 +74,7 @@
                 <constraint firstItem="IGl-rL-MNY" firstAttribute="top" secondItem="XOA-jJ-GFh" secondAttribute="bottom" constant="30" id="Eb8-6w-EtJ"/>
                 <constraint firstItem="e4t-Ga-2MV" firstAttribute="top" secondItem="IGl-rL-MNY" secondAttribute="bottom" constant="10" id="Edz-hb-qct"/>
                 <constraint firstItem="XOA-jJ-GFh" firstAttribute="leading" secondItem="qIw-ZY-nmB" secondAttribute="leading" id="Glo-5B-f1K"/>
-                <constraint firstItem="k4E-fa-P5s" firstAttribute="bottom" secondItem="gSR-Fy-K4B" secondAttribute="bottom" constant="20" id="QXH-Dq-p0h"/>
+                <constraint firstItem="k4E-fa-P5s" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="gSR-Fy-K4B" secondAttribute="bottom" constant="20" id="QXH-Dq-p0h"/>
                 <constraint firstItem="e4t-Ga-2MV" firstAttribute="leading" secondItem="k4E-fa-P5s" secondAttribute="leading" id="YZo-tu-MGH"/>
                 <constraint firstItem="gSR-Fy-K4B" firstAttribute="centerX" secondItem="qIw-ZY-nmB" secondAttribute="centerX" id="Zmt-4Z-Wv9"/>
                 <constraint firstItem="IGl-rL-MNY" firstAttribute="leading" secondItem="k4E-fa-P5s" secondAttribute="leading" constant="20" id="hhE-qA-kAC"/>

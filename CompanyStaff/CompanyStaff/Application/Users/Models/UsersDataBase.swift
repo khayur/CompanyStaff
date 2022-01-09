@@ -18,7 +18,17 @@ class UsersDataBase {
     //MARK: -Methods
     func addUser(_ user: User) {
         self.users?.append(user)
-    }
+        
+            guard let companies = companiesDataBase.companies,
+                  let userCompanyName = user.company?.name
+            else { return }
+            for company in companies {
+                if userCompanyName  == company.name {
+                    company.addEmployee(user)
+                }
+            }
+        }
+    
     func addUsers(_ users: [User]) {
         self.users?.append(contentsOf: users)
     }

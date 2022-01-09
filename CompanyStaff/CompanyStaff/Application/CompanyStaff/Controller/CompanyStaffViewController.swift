@@ -9,8 +9,8 @@ import UIKit
 
 class CompanyStaffViewController: BaseViewController, ModelDataSource {
     
-//MARK: -Outlets
-
+    //MARK: -Outlets
+    
     @IBOutlet weak var companyStaffTableView: UITableView! {
         didSet {
             companyStaffTableView.delegate = self
@@ -26,7 +26,9 @@ class CompanyStaffViewController: BaseViewController, ModelDataSource {
     var model: [User]?
     var companyName: String?
     var dataSource: CompanyStaffDataSource?
+    var optionsView: OptionsView!
     var newCompanyEmployeeView: NewCompanyEmployeeView!
+    var newUserView: NewUserView!
     
     //MARK: -Lifecycle
     override func viewDidLoad() {
@@ -43,7 +45,7 @@ class CompanyStaffViewController: BaseViewController, ModelDataSource {
         
         if let companyName = companyName {
             if let model = model, !model.isEmpty {
-            titleLabel.text = "Staff of '\(companyName)'"
+                titleLabel.text = "Staff of '\(companyName)'"
             } else {
                 titleLabel.text = "'\(companyName)' has no staff"
             }
@@ -59,15 +61,40 @@ class CompanyStaffViewController: BaseViewController, ModelDataSource {
         cell.configure()
     }
     
+     func showOptionsView(as type: OptionsView.Type) {
+        switch type {
+        case is NewCompanyEmployeeView.Type :
+            createNewCompanyEmployeeView()
+        case is NewUserView.Type :
+            createNewUserView()
+        default:
+            return
+        }
+    }
+    
     private func createNewCompanyEmployeeView() {
         newCompanyEmployeeView = NewCompanyEmployeeView.instantiate()
         newCompanyEmployeeView.configure()
+        
+
         newCompanyEmployeeView.center = CGPoint(x: view.bounds.midX, y: view.bounds.midY)
         newCompanyEmployeeView.applyShadow(corner: 4)
         
         guard let companyName = companyName else { return }
         newCompanyEmployeeView.companyNameLabel.text = companyName
+        newCompanyEmployeeView.controller = self
         self.view.addSubview(newCompanyEmployeeView)
+    }
+    
+    private func createNewUserView() {
+        newUserView = NewUserView.instantiate()
+        newUserView.controller = self
+        newUserView.companyName = self.companyName
+        newUserView.configure()
+        newUserView.center = CGPoint(x: view.bounds.midX, y: view.bounds.midY)
+        newUserView.applyShadow(corner: 4)
+        newUserView.frame = CGRect(x: 50, y: 100, width: self.view.frame.width - 100, height: self.view.frame.height - 500)
+        self.view.addSubview(newUserView)
     }
     
     private func fireEmployee(_ user: User) {
@@ -80,10 +107,27 @@ class CompanyStaffViewController: BaseViewController, ModelDataSource {
         user.company = nil
     }
     
+     func getCompany(named companyName: String) -> Company? {
+        guard let companies = companiesDataBase.companies else { fatalError() }
+        for company in companies {
+            if company.name == companyName {
+                return company
+            }
+        }
+        return nil
+    }
+    
+     func updateModel() {
+        guard let companyName = companyName else { return }
+        let company = getCompany(named: companyName)
+        self.model = company?.employees
+    }
+    
     //MARK: -Actions
     @IBAction func didPressAddNewUserButton(_ sender: Any) {
-        createNewCompanyEmployeeView()
+        showOptionsView(as: NewCompanyEmployeeView.self)
     }
+    
 }
 
 //MARK: -Extensions

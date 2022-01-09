@@ -38,7 +38,7 @@ class NewCompanyView: UIView, NibLoadableView {
         controller?.companiesTableView.reloadData()
         self.removeFromSuperview()
         } else {
-            errorLabel.text = "Please, enter company name"
+            errorLabel.text = getErrorLabelText(forCode: 1)
             errorLabel.isHidden = false
         }
     }

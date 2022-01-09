@@ -22,16 +22,15 @@ class CompaniesViewController: BaseViewController {
     //MARK: - Properties
     var model: CompaniesDataBase?
     var newCompanyView: NewCompanyView!
+    
     //MARK: -Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewController()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        self.tabBarController?.tabBar.isHidden = false
     }
     
     //MARK: -Helper Methods
@@ -89,7 +88,6 @@ extension CompaniesViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let vc = UIStoryboard.companyStaff.instantiateViewController(withIdentifier: typeName(CompanyStaffViewController.self)) as? CompanyStaffViewController else { fatalError() }
-//        self.tabBarController?.tabBar.isHidden = true
         vc.model = getUsers(at: indexPath)
         vc.companyName = model?.companies?[indexPath.row].name
         navigationController?.pushViewController(vc, animated: true)
