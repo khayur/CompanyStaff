@@ -41,3 +41,17 @@ extension NibLoadableView where Self: UIView {
         return Bundle.main.loadNibNamed(nibName, owner: self, options: nil)?.first as! Self
     }
 }
+
+protocol ReusableView: AnyObject {
+    static var defaultReuseIdentifier: String { get }
+}
+
+extension ReusableView where Self: UIView {
+    static var defaultReuseIdentifier: String {
+        return NSStringFromClass(self)
+    }
+}
+
+protocol OptionsView: AnyObject {
+    static var optionsViewName: String { get }
+}
