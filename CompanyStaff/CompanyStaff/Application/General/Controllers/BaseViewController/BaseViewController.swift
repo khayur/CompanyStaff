@@ -40,6 +40,15 @@ class BaseViewController: UIViewController {
         loadingView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     }
     
+    /// Creates an overlay view which will restrict user iteraction with view controller's contens while subview existing
+    /// - Returns: Overlay view of UIView type.
+    func getOverlayView() -> UIView {
+        let overlayView = UIView()
+        overlayView.frame = view.bounds
+        overlayView.tag = Constants.tagForOverlayView
+        return overlayView
+    }
+    
     func showLoading() {
         loadingView.start()
     }

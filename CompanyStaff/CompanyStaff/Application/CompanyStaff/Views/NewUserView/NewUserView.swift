@@ -8,7 +8,7 @@
 import UIKit
 import DropDown
 
-class NewUserView: UIView, NibLoadableView {
+class NewUserView: BaseView {
     //MARK: -Outlets
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var ageTextField: UITextField!
@@ -25,16 +25,39 @@ class NewUserView: UIView, NibLoadableView {
     let sexDropDown = DropDown()
     var sex: Sex?
     var companyName: String?
+
     
     //MARK: -Methods
     func configure() {
-        self.frame = CGRect(x: 50, y: 20, width: 200, height: 300)
-        setupChooseSexButton()
+        guard let controller = controller else {
+            return
+        }
+
+        self.frame = CGRect(x: 50, y: 20,
+                            width: controller.view.bounds.width - 50,
+                            height: controller.view.bounds.height / 2)
+        self.center = controller.view.center
+        self.applyShadow(corner: 15, opacity: 0.5, shadow: 15)
+        self.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        
+        self.companyName = controller.companyName
+        
+        
         warningStackView.isHidden = true
         ageTextField.keyboardType = .numberPad
+        setupButtons()
+    }
+    private func setupButtons() {
+        cancelButton.backgroundColor = Constants.appMainColor
+        cancelButton.layer.cornerRadius = cancelButton.frame.height / 2
+        cancelButton.tintColor = .white
+        donebutton.backgroundColor = Constants.appMainColor
+        donebutton.layer.cornerRadius = donebutton.frame.height / 2
+        donebutton.tintColor = .white
+        setupChooseSexButton()
     }
     
-    func isEnteredDataCorrect() -> Bool {
+    private func isEnteredDataCorrect() -> Bool {
         warningStackView.isHidden = true
         nameTextField.backgroundColor = .white
         ageTextField.backgroundColor = .white
@@ -69,9 +92,29 @@ class NewUserView: UIView, NibLoadableView {
         
         return true
     }
+    
+    private func setupChooseSexButton() {
+            sexDropDown.anchorView = chooseSexButton
+            sexDropDown.bottomOffset = CGPoint(x: 0, y: chooseSexButton.bounds.height)
+            sexDropDown.dataSource = Sex.allCases.map { $0.rawValue }
+            sexDropDown.selectionAction = { [weak self] (index, item) in
+                self?.chooseSexButton.setTitle(item, for: .normal)
+                if item == "male" {
+                    self?.sex = .male
+                } else {
+                    self?.sex = .female
+                }
+            }
+        chooseSexButton.backgroundColor = Constants.appMainColor
+        chooseSexButton.layer.cornerRadius = self.frame.height / 2
+        }
+    
     //MARK: -Actions
     @IBAction func didPressCancelButton(_ sender: Any) {
-        self.removeFromSuperview()
+        self.removeFromSuperview(animated: true)
+        if let superview = superview?.viewWithTag(Constants.tagForOverlayView) {
+            superview.removeFromSuperview()
+        }
     }
     
     @IBAction func didPressDoneButton(_ sender: Any) {
@@ -86,25 +129,14 @@ class NewUserView: UIView, NibLoadableView {
         usersDataBase.addUser(newUser)
         controller?.updateModel()
         controller?.companyStaffTableView.reloadData()
-        self.removeFromSuperview()
+        self.removeFromSuperview(animated: true)
+        if let superview = superview?.viewWithTag(Constants.tagForOverlayView) {
+            superview.removeFromSuperview()
+        }
     }
     
     @IBAction func didPressChooseSexButton(_ sender: Any) {
         sexDropDown.show()
-    }
-    
-    func setupChooseSexButton() {
-        sexDropDown.anchorView = chooseSexButton
-        sexDropDown.bottomOffset = CGPoint(x: 0, y: chooseSexButton.bounds.height)
-        sexDropDown.dataSource = Sex.allCases.map { $0.rawValue }
-        sexDropDown.selectionAction = { [weak self] (index, item) in
-            self?.chooseSexButton.setTitle(item, for: .normal)
-            if item == "male" {
-                self?.sex = .male
-            } else {
-                self?.sex = .female
-            }
-        }
     }
 }
 

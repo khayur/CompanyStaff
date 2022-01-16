@@ -15,13 +15,13 @@
             <rect key="frame" x="0.0" y="0.0" width="400" height="311"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create new employee" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ICU-ui-uB9">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Create new employee" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ICU-ui-uB9">
                     <rect key="frame" x="108.5" y="20" width="183" height="31"/>
                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="ga4-dA-5mh">
+                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="ga4-dA-5mh">
                     <rect key="frame" x="20" y="66" width="360" height="141"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="osz-En-8XD">
@@ -62,16 +62,16 @@
                                 </textField>
                             </subviews>
                         </stackView>
-                        <stackView opaque="NO" contentMode="scaleToFill" spacing="38" translatesAutoresizingMaskIntoConstraints="NO" id="Aa2-Yg-D0c">
+                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="38" translatesAutoresizingMaskIntoConstraints="NO" id="Aa2-Yg-D0c">
                             <rect key="frame" x="0.0" y="110" width="360" height="31"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" text="Sex" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zEL-lG-xfr">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" ambiguous="YES" text="Sex" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zEL-lG-xfr">
                                     <rect key="frame" x="0.0" y="0.0" width="28" height="31"/>
                                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aHF-Os-I7h">
+                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aHF-Os-I7h">
                                     <rect key="frame" x="66" y="0.0" width="294" height="31"/>
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="plain" title="Choose sex"/>
@@ -83,7 +83,7 @@
                         </stackView>
                     </subviews>
                 </stackView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wdC-7b-IWK">
+                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wdC-7b-IWK">
                     <rect key="frame" x="338" y="20" width="42" height="31"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" image="xmark" catalog="system"/>
@@ -91,11 +91,14 @@
                         <action selector="didPressCancelButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="ssW-8B-3cN"/>
                     </connections>
                 </button>
-                <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" spacing="166" translatesAutoresizingMaskIntoConstraints="NO" id="42M-ql-02f">
-                    <rect key="frame" x="48.5" y="257" width="303" height="31"/>
+                <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" spacing="150" translatesAutoresizingMaskIntoConstraints="NO" id="42M-ql-02f">
+                    <rect key="frame" x="56.5" y="256" width="287" height="40"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mbr-4b-Kyo">
-                            <rect key="frame" x="0.0" y="0.0" width="68.5" height="31"/>
+                            <rect key="frame" x="0.0" y="0.0" width="68.5" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="hl0-fI-8SA"/>
+                            </constraints>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title="Cancel"/>
                             <connections>
@@ -103,7 +106,10 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7bH-sz-BGu">
-                            <rect key="frame" x="234.5" y="0.0" width="68.5" height="31"/>
+                            <rect key="frame" x="218.5" y="0.0" width="68.5" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="a22-At-0Ac"/>
+                            </constraints>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title="Done"/>
                             <connections>
@@ -112,18 +118,18 @@
                         </button>
                     </subviews>
                 </stackView>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="BS0-Y6-1vR">
+                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="BS0-Y6-1vR">
                     <rect key="frame" x="0.0" y="222" width="400" height="20"/>
                     <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="zPq-R5-nb8">
+                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="zPq-R5-nb8">
                             <rect key="frame" x="162.5" y="0.0" width="75.5" height="20"/>
                             <subviews>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ENp-AS-WlY">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ENp-AS-WlY">
                                     <rect key="frame" x="0.0" y="2.5" width="17" height="14.5"/>
                                     <color key="tintColor" systemColor="systemRedColor"/>
                                     <imageReference key="image" image="exclamationmark.triangle" catalog="system" symbolScale="small"/>
                                 </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h4D-o1-j1x">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Error label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h4D-o1-j1x">
                                     <rect key="frame" x="21" y="0.0" width="54.5" height="20"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                     <color key="textColor" systemColor="systemRedColor"/>
@@ -156,7 +162,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="ageTextField" destination="2p8-wr-jWv" id="JPb-Wp-kOw"/>
-                <outlet property="cancelButton" destination="wdC-7b-IWK" id="d2C-pr-OL5"/>
+                <outlet property="cancelButton" destination="mbr-4b-Kyo" id="xvC-Q0-Iw6"/>
                 <outlet property="chooseSexButton" destination="aHF-Os-I7h" id="RtP-9H-5kU"/>
                 <outlet property="donebutton" destination="7bH-sz-BGu" id="24b-Gu-yIH"/>
                 <outlet property="errorLabel" destination="h4D-o1-j1x" id="4K5-lg-Y1W"/>

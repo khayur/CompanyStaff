@@ -37,16 +37,12 @@ class TabBarController: UITabBarController {
         if #available(iOS 15.0, *) {
             overrideUserInterfaceStyle = .light
         }
-        //            color = .red
-        //            self.tabBar.backgroundColor = color
-        //            view.backgroundColor = color
-        //            self.tabBar.scrollEdgeAppearance =
         design()
     }
     //MARK: -Helper Methods
     
     private func design() {
-//        color = Constants.appMainColor
+        color = Constants.appMainColor
         let appearanceOfTabBar = UITabBarAppearance()
         appearanceOfTabBar.configureWithOpaqueBackground()
         appearanceOfTabBar.backgroundColor = color

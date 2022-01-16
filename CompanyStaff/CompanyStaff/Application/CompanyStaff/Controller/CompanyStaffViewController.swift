@@ -55,8 +55,8 @@ class CompanyStaffViewController: BaseViewController {
             titleLabel.text = "Error"
         }
     }
-
-     func showOptionsView(as type: OptionsView.Type) {
+    
+    func showOptionsView(as type: OptionsView.Type) {
         switch type {
         case is NewCompanyEmployeeView.Type :
             createNewCompanyEmployeeView()
@@ -68,25 +68,37 @@ class CompanyStaffViewController: BaseViewController {
     }
     
     private func createNewCompanyEmployeeView() {
+        let overlayView = getOverlayView()
+        view.addSubview(overlayView)
+        
         newCompanyEmployeeView = NewCompanyEmployeeView.instantiate()
-        newCompanyEmployeeView.configure()
-        newCompanyEmployeeView.center = CGPoint(x: view.bounds.midX, y: view.bounds.midY)
-        newCompanyEmployeeView.applyShadow(corner: 4)
-        guard let companyName = companyName else { return }
-        newCompanyEmployeeView.companyNameLabel.text = companyName
         newCompanyEmployeeView.controller = self
-        self.view.addSubview(newCompanyEmployeeView)
+        newCompanyEmployeeView.tag = 222
+        newCompanyEmployeeView.configure()
+        
+        if let taggedView = view.viewWithTag(222) {
+            taggedView.removeFromSuperview()
+            overlayView.addSubview(newCompanyEmployeeView)
+        } else {
+           overlayView.addSubview(newCompanyEmployeeView)
+        }
     }
     
     private func createNewUserView() {
+        let overlayView = getOverlayView()
+        view.addSubview(overlayView)
+        
         newUserView = NewUserView.instantiate()
         newUserView.controller = self
-        newUserView.companyName = self.companyName
+        newUserView.tag = 333
         newUserView.configure()
-        newUserView.center = CGPoint(x: view.bounds.midX, y: view.bounds.midY)
-        newUserView.applyShadow(corner: 4)
-        newUserView.frame = CGRect(x: 50, y: 100, width: self.view.frame.width - 100, height: self.view.frame.height - 500)
-        self.view.addSubview(newUserView)
+        
+        if let taggedView = view.viewWithTag(333) {
+            taggedView.removeFromSuperview()
+            overlayView.addSubview(newUserView)
+        } else {
+            overlayView.addSubview(newUserView)
+        }
     }
     
     private func fireEmployee(_ user: User) {
@@ -99,7 +111,7 @@ class CompanyStaffViewController: BaseViewController {
         user.company = nil
     }
     
-     func getCompany(named companyName: String) -> Company? {
+    func getCompany(named companyName: String) -> Company? {
         guard let companies = companiesDataBase.companies else { return nil }
         for company in companies {
             if company.name == companyName {
@@ -109,7 +121,7 @@ class CompanyStaffViewController: BaseViewController {
         return nil
     }
     
-     func updateModel() {
+    func updateModel() {
         guard let companyName = companyName else { return }
         let company = getCompany(named: companyName)
         self.model = company?.employees

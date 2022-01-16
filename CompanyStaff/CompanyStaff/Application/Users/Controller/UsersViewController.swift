@@ -19,7 +19,7 @@ class UsersViewController: BaseViewController {
     
     //MARK: -Properties
     private var userDetailsView: UserDetailsView!
-    private var model: UsersDataBase?
+    var model: UsersDataBase?
     
     //MARK: -Lifecycle
     override func viewDidLoad() {
@@ -44,23 +44,25 @@ class UsersViewController: BaseViewController {
     }
     
     private func createUserDetailsView(for indexPath: IndexPath) {
+       
+        let overlayView = getOverlayView()
+        view.addSubview(overlayView)
+        
         userDetailsView = UserDetailsView.instantiate()
+        userDetailsView.controller = self
+        userDetailsView.indexPath = indexPath
         userDetailsView.configure()
         userDetailsView.tag = 111
-        guard let users = model?.users else { return }
-        let modelItem = users[indexPath.row]
-        userDetailsView.nameLabel.text = modelItem.name
-        userDetailsView.ageLabel.text = String(modelItem.age)
-        userDetailsView.sexLabel.text = modelItem.sex.rawValue
-        userDetailsView.companyNameLabel.text = modelItem.company?.name ?? "Unemployed"
         userDetailsView.center = CGPoint(x: view.bounds.midX, y: view.bounds.midY)
+        
         if let taggedView = view.viewWithTag(111) {
             taggedView.removeFromSuperview()
-            view.addSubview(userDetailsView)
+            overlayView.addSubview(userDetailsView)
         } else {
-            view.addSubview(userDetailsView)
+            overlayView.addSubview(userDetailsView)
         }
     }
+
 }
 
 //MARK: -Extensions

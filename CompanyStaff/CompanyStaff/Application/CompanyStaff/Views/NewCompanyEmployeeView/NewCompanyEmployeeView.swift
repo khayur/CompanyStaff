@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NewCompanyEmployeeView: UIView, NibLoadableView, OptionsView {
+class NewCompanyEmployeeView: BaseView, OptionsView {
     
 //MARK: -Outlets
     @IBOutlet weak var companyNameLabel: UILabel!
@@ -30,12 +30,26 @@ class NewCompanyEmployeeView: UIView, NibLoadableView, OptionsView {
     
     //MARK: -Methods
     func configure() {
+        guard let controller = controller,
+              let companyName = controller.companyName else { return }
         
+        self.companyNameLabel.text = companyName
+    
+        
+        self.frame = CGRect(x: 0, y: 0,
+                            width: controller.view.bounds.width - 50,
+                            height: controller.view.bounds.height / 3)
+        self.center = controller.view.center
+        self.applyShadow(corner: 15, opacity: 0.5, shadow: 15)
+        self.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     }
     
     //MARK: -Actions
     @IBAction func didPressCloseViewButton(_ sender: Any) {
-        self.removeFromSuperview()
+        self.removeFromSuperview(animated: true)
+        if let superview = superview?.viewWithTag(Constants.tagForOverlayView) {
+            superview.removeFromSuperview()
+        }
     }
 }
 

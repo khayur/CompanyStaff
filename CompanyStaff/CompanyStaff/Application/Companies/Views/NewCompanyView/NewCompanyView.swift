@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NewCompanyView: UIView, NibLoadableView {
+class NewCompanyView: BaseView {
     //MARK: -Outlets
     
     @IBOutlet weak var nameTextField: UITextField!
@@ -51,7 +51,7 @@ class NewCompanyView: UIView, NibLoadableView {
     
     //MARK: -Actions
     @IBAction func didPressCancelButton() {
-        self.removeFromSuperview()
+        self.removeFromSuperview(animated: true)
     }
     
     @IBAction func didPressAddButton() {
@@ -59,7 +59,7 @@ class NewCompanyView: UIView, NibLoadableView {
            isEnteredDataCorrect() {
             companiesDataBase.addCompany(Company(name: companyName, employees: []))
             controller?.companiesTableView.reloadData()
-            self.removeFromSuperview()
+            self.removeFromSuperview(animated: true)
         }
     }
 }
