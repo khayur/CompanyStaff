@@ -15,23 +15,26 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add new employee to" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hOK-yj-MKh">
-                    <rect key="frame" x="116" y="59" width="182.5" height="31"/>
+                    <rect key="frame" x="116" y="59" width="182.5" height="40"/>
                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CompanyName" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qcl-ZG-lRg">
-                    <rect key="frame" x="20" y="95" width="374" height="20.5"/>
+                    <rect key="frame" x="20" y="104" width="374" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="r0h-O5-MMb">
-                    <rect key="frame" x="20" y="135.5" width="374" height="141.5"/>
+                    <rect key="frame" x="20" y="144.5" width="374" height="132.5"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x3F-X1-U2M">
-                    <rect key="frame" x="352" y="59" width="42" height="31"/>
+                    <rect key="frame" x="352" y="59" width="42" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="2Oy-Wr-8rW"/>
+                    </constraints>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" image="xmark" catalog="system"/>
                     <connections>

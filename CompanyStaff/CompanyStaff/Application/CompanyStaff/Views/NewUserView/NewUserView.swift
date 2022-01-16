@@ -14,6 +14,7 @@ class NewUserView: BaseView {
     @IBOutlet weak var ageTextField: UITextField!
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var cancelXButton: UIButton!
     @IBOutlet weak var donebutton: UIButton!
     @IBOutlet weak var chooseSexButton: UIButton!
     @IBOutlet weak var warningStackView: UIStackView!
@@ -35,7 +36,7 @@ class NewUserView: BaseView {
 
         self.frame = CGRect(x: 50, y: 20,
                             width: controller.view.bounds.width - 50,
-                            height: controller.view.bounds.height / 2)
+                            height: controller.view.bounds.height / 2.7)
         self.center = controller.view.center
         self.applyShadow(corner: 15, opacity: 0.5, shadow: 15)
         self.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -48,12 +49,15 @@ class NewUserView: BaseView {
         setupButtons()
     }
     private func setupButtons() {
-        cancelButton.backgroundColor = Constants.appMainColor
+        cancelButton.backgroundColor = Constants.appButtonsColor
         cancelButton.layer.cornerRadius = cancelButton.frame.height / 2
         cancelButton.tintColor = .white
-        donebutton.backgroundColor = Constants.appMainColor
+        donebutton.backgroundColor = Constants.appButtonsColor
         donebutton.layer.cornerRadius = donebutton.frame.height / 2
         donebutton.tintColor = .white
+        cancelXButton.backgroundColor = Constants.appButtonsColor
+        cancelXButton.layer.cornerRadius = cancelXButton.frame.height / 2
+        cancelXButton.tintColor = .white
         setupChooseSexButton()
     }
     
@@ -105,12 +109,16 @@ class NewUserView: BaseView {
                     self?.sex = .female
                 }
             }
-        chooseSexButton.backgroundColor = Constants.appMainColor
-        chooseSexButton.layer.cornerRadius = self.frame.height / 2
+        DropDown.appearance().backgroundColor = .white
+        DropDown.appearance().selectionBackgroundColor = Constants.appSupportingColor
+        chooseSexButton.backgroundColor = Constants.appButtonsColor
+        chooseSexButton.layer.cornerRadius = self.chooseSexButton.frame.height / 2
+        chooseSexButton.tintColor = .white
         }
     
     //MARK: -Actions
     @IBAction func didPressCancelButton(_ sender: Any) {
+        cancelButton.pulsate()
         self.removeFromSuperview(animated: true)
         if let superview = superview?.viewWithTag(Constants.tagForOverlayView) {
             superview.removeFromSuperview()
@@ -125,6 +133,7 @@ class NewUserView: BaseView {
               let companyName = companyName,
               let company = controller?.getCompany(named: companyName)
         else { return }
+        donebutton.pulsate()
         let newUser = User(name: userName, age: age, sex: sex, company: company)
         usersDataBase.addUser(newUser)
         controller?.updateModel()
@@ -136,6 +145,7 @@ class NewUserView: BaseView {
     }
     
     @IBAction func didPressChooseSexButton(_ sender: Any) {
+        chooseSexButton.pulsate()
         sexDropDown.show()
     }
 }

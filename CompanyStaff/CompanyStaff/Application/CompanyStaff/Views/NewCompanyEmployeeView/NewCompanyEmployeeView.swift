@@ -42,14 +42,19 @@ class NewCompanyEmployeeView: BaseView, OptionsView {
         self.center = controller.view.center
         self.applyShadow(corner: 15, opacity: 0.5, shadow: 15)
         self.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        closeViewButton.backgroundColor = Constants.appButtonsColor
+        closeViewButton.layer.cornerRadius = closeViewButton.frame.height / 2
+        closeViewButton.tintColor = .white
     }
     
     //MARK: -Actions
     @IBAction func didPressCloseViewButton(_ sender: Any) {
+        closeViewButton.pulsate()
         self.removeFromSuperview(animated: true)
         if let superview = superview?.viewWithTag(Constants.tagForOverlayView) {
             superview.removeFromSuperview()
         }
+        
     }
 }
 
@@ -72,7 +77,7 @@ extension NewCompanyEmployeeView: UITableViewDataSource {
     
     private func configureCell(cell: NewCompanyEmployeeTableViewCell, at indexPath: IndexPath) {
         cell.menuOptionLabel.text = menuOptions[indexPath.section]
-        cell.setBackgroundForSelectedState(color: Constants.appMainColor)
+        cell.setBackgroundForSelectedState(color: Constants.appSupportingColor)
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

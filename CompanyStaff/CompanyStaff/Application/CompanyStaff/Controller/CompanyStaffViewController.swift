@@ -152,7 +152,7 @@ extension CompanyStaffViewController: UITableViewDataSource {
         cell.ageChanger = self
         cell.modelItem = user
         cell.configure()
-        cell.setBackgroundForSelectedState(color: Constants.appMainColor)
+        cell.setBackgroundForSelectedState(color: Constants.appSupportingColor)
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

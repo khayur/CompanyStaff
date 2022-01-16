@@ -19,14 +19,7 @@ class UserDetailsView: BaseView {
     //MARK: -Properties
     var controller: UsersViewController?
     var indexPath: IndexPath?
-    var width: CGFloat {
-        let rootViewController =  UIApplication.shared.windows.first!.rootViewController
-        guard let rootViewWidth = rootViewController?.view.bounds.width else {return 200}
-        return rootViewWidth / 1.5
-    }
-    var height: CGFloat {
-        return width
-    }
+
     
     //MARK: -Methods
     func configure() {
@@ -41,9 +34,14 @@ class UserDetailsView: BaseView {
         self.companyNameLabel.text = modelItem.company?.name ?? "Unemployed"
         
         self.layer.zPosition = 3
-        self.frame = CGRect(x: 0, y: 0, width: width, height: height)
+        self.frame = CGRect(x: 0, y: 0,
+                            width: controller.view.bounds.width - 50,
+                            height: controller.view.bounds.height / 4)
         self.applyShadow(corner: 15, opacity: 0.5, shadow: 15)
         self.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        closeButton.backgroundColor = Constants.appButtonsColor
+        closeButton.layer.cornerRadius = closeButton.frame.height / 2
+        closeButton.tintColor = .white
     }
     
     

@@ -17,7 +17,8 @@ class CompanyTableViewCell: BaseTableViewCell {
     //MARK: -Methods
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        companyLabel.textColor = Constants.appFontMainColor
+        descriptionLabel.textColor = Constants.appFontSubColor
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

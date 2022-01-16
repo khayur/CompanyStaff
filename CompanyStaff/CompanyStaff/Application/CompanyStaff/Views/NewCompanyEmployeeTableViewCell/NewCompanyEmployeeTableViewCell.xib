@@ -17,32 +17,36 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Menu Option" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9LY-j1-8Uy">
-                        <rect key="frame" x="15" y="5" width="98.5" height="34"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Menu Option" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9LY-j1-8Uy" customClass="SubLabel" customModule="CompanyStaff" customModuleProvider="target">
+                        <rect key="frame" x="15" y="5" width="98.5" height="40"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vdd-lo-Wjc">
-                        <rect key="frame" x="268" y="5" width="37" height="34"/>
+                        <rect key="frame" x="268" y="5" width="37" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="gYu-XQ-P9c"/>
+                        </constraints>
                         <color key="tintColor" systemColor="labelColor"/>
                         <state key="normal" title="Button"/>
                         <buttonConfiguration key="configuration" style="plain" image="chevron.forward" catalog="system"/>
                     </button>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="vdd-lo-Wjc" secondAttribute="bottom" constant="5" id="8ft-Ac-muc"/>
                     <constraint firstItem="vdd-lo-Wjc" firstAttribute="centerY" secondItem="9LY-j1-8Uy" secondAttribute="centerY" id="FVi-Jr-CJA"/>
                     <constraint firstItem="9LY-j1-8Uy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="N8N-Xe-e4O"/>
+                    <constraint firstItem="vdd-lo-Wjc" firstAttribute="top" relation="greaterThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="TFM-7h-bpP"/>
                     <constraint firstAttribute="bottom" secondItem="9LY-j1-8Uy" secondAttribute="bottom" constant="5" id="Uhc-Dn-3bE"/>
-                    <constraint firstItem="vdd-lo-Wjc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="X7i-Qw-Zvi"/>
                     <constraint firstItem="9LY-j1-8Uy" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="cof-pK-TxV"/>
                     <constraint firstAttribute="trailing" secondItem="vdd-lo-Wjc" secondAttribute="trailing" constant="15" id="jMX-cC-KnW"/>
                     <constraint firstItem="vdd-lo-Wjc" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="9LY-j1-8Uy" secondAttribute="trailing" constant="5" id="poh-46-trR"/>
-                    <constraint firstAttribute="bottom" secondItem="vdd-lo-Wjc" secondAttribute="bottom" constant="5" id="xT3-B7-6gT"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="chevronButton" destination="vdd-lo-Wjc" id="Ety-pM-dTA"/>
                 <outlet property="menuOptionLabel" destination="9LY-j1-8Uy" id="l08-f3-8aZ"/>
             </connections>
             <point key="canvasLocation" x="139" y="72"/>

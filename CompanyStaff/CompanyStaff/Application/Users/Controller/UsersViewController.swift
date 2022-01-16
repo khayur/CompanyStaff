@@ -99,7 +99,7 @@ extension UsersViewController: UITableViewDataSource {
         let modelItem = users[indexPath.row]
         cell.userNameLabel.text = modelItem.name
         cell.companyNameLabel.text = modelItem.company?.name ?? "Unemployed"
-        cell.setBackgroundForSelectedState(color: Constants.appMainColor)
+        cell.setBackgroundForSelectedState(color: Constants.appSupportingColor)
     }
 }
 

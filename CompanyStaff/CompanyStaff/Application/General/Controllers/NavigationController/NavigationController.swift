@@ -41,9 +41,8 @@ class NavigationController: UINavigationController {
             design()
         }
     private func design() {
-//        color = Constants.appMainColor
-//        navigationBar.setup(barColor: color)
-//        view.backgroundColor = color
+        color = Constants.appMainColor
+
         
         let appearanceOfNavBar = UINavigationBarAppearance()
         appearanceOfNavBar.configureWithOpaqueBackground()

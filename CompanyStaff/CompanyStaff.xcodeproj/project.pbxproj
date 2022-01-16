@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		4B3067D175D2FC23F94D6BC9 /* Pods_CompanyStaff.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46603ED2B329BDCB144A35C4 /* Pods_CompanyStaff.framework */; };
+		853B5CB627945DAB0081F276 /* UIButton + additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853B5CB527945DAB0081F276 /* UIButton + additions.swift */; };
+		853B5CB9279463810081F276 /* MainLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853B5CB8279463810081F276 /* MainLabel.swift */; };
+		853B5CBC279464AB0081F276 /* SubLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853B5CBB279464AB0081F276 /* SubLabel.swift */; };
 		85456C33278612E100E1C487 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85456C32278612E100E1C487 /* NavigationController.swift */; };
 		85456C362786139500E1C487 /* UINavigationController+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85456C352786139500E1C487 /* UINavigationController+Additions.swift */; };
 		85456C3827861D0B00E1C487 /* AgeChangerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85456C3727861D0B00E1C487 /* AgeChangerDelegate.swift */; };
@@ -60,6 +63,9 @@
 		46603ED2B329BDCB144A35C4 /* Pods_CompanyStaff.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CompanyStaff.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AD65399D3473C12B90AB795 /* Pods-CompanyStaff.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CompanyStaff.release.xcconfig"; path = "Target Support Files/Pods-CompanyStaff/Pods-CompanyStaff.release.xcconfig"; sourceTree = "<group>"; };
 		739F5920E11DD80ABCB03F9D /* Pods-CompanyStaff.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CompanyStaff.debug.xcconfig"; path = "Target Support Files/Pods-CompanyStaff/Pods-CompanyStaff.debug.xcconfig"; sourceTree = "<group>"; };
+		853B5CB527945DAB0081F276 /* UIButton + additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton + additions.swift"; sourceTree = "<group>"; };
+		853B5CB8279463810081F276 /* MainLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainLabel.swift; sourceTree = "<group>"; };
+		853B5CBB279464AB0081F276 /* SubLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubLabel.swift; sourceTree = "<group>"; };
 		85456C32278612E100E1C487 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		85456C352786139500E1C487 /* UINavigationController+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Additions.swift"; sourceTree = "<group>"; };
 		85456C3727861D0B00E1C487 /* AgeChangerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeChangerDelegate.swift; sourceTree = "<group>"; };
@@ -137,6 +143,22 @@
 				46603ED2B329BDCB144A35C4 /* Pods_CompanyStaff.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		853B5CB7279463530081F276 /* MainLabel */ = {
+			isa = PBXGroup;
+			children = (
+				853B5CB8279463810081F276 /* MainLabel.swift */,
+			);
+			path = MainLabel;
+			sourceTree = "<group>";
+		};
+		853B5CBA279464960081F276 /* SubLabel */ = {
+			isa = PBXGroup;
+			children = (
+				853B5CBB279464AB0081F276 /* SubLabel.swift */,
+			);
+			path = SubLabel;
 			sourceTree = "<group>";
 		};
 		85456C342786131300E1C487 /* NavigationController */ = {
@@ -222,6 +244,7 @@
 				857CF4DC27830318002C7A5A /* UIWindow+Additions.swift */,
 				857CF4FD27832D0A002C7A5A /* UITableView+Additions.swift */,
 				85456C352786139500E1C487 /* UINavigationController+Additions.swift */,
+				853B5CB527945DAB0081F276 /* UIButton + additions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -229,6 +252,8 @@
 		857CF4C22782F615002C7A5A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				853B5CBA279464960081F276 /* SubLabel */,
+				853B5CB7279463530081F276 /* MainLabel */,
 				85456C392786254C00E1C487 /* Storyboards */,
 				857CF4F1278322E2002C7A5A /* Cells */,
 				857CF4CB2782F990002C7A5A /* BaseView */,
@@ -629,6 +654,7 @@
 				85456C3827861D0B00E1C487 /* AgeChangerDelegate.swift in Sources */,
 				857CF4DD27830318002C7A5A /* UIWindow+Additions.swift in Sources */,
 				857CF4CA2782F82A002C7A5A /* UIView+Additions.swift in Sources */,
+				853B5CB627945DAB0081F276 /* UIButton + additions.swift in Sources */,
 				85A4A00B278769F900843699 /* NewCompanyEmployeeTableViewCell.swift in Sources */,
 				857CF4ED278321C0002C7A5A /* UsersViewController.swift in Sources */,
 				857CF5082784AE82002C7A5A /* CompanyTableViewCell.swift in Sources */,
@@ -638,6 +664,7 @@
 				857CF5182784E23E002C7A5A /* CompanyStaffTableViewCell.swift in Sources */,
 				857CF5052784ABDC002C7A5A /* CompaniesViewController.swift in Sources */,
 				857CF51B2784FCB0002C7A5A /* CompanyStaffDataSource.swift in Sources */,
+				853B5CBC279464AB0081F276 /* SubLabel.swift in Sources */,
 				857CF4C72782F73F002C7A5A /* BaseViewController.swift in Sources */,
 				85456C33278612E100E1C487 /* NavigationController.swift in Sources */,
 				857CF4D62782FD94002C7A5A /* TabBarController.swift in Sources */,
@@ -646,6 +673,7 @@
 				857CF4CD2782F9AD002C7A5A /* BaseView.swift in Sources */,
 				857CF501278361A4002C7A5A /* UserDetailsView.swift in Sources */,
 				85A4A019278B78AA00843699 /* ErrorLabelText.swift in Sources */,
+				853B5CB9279463810081F276 /* MainLabel.swift in Sources */,
 				857CF50B2784B770002C7A5A /* UsersDataBase.swift in Sources */,
 				857CF4E527830FAD002C7A5A /* User.swift in Sources */,
 				857CF5132784DFE9002C7A5A /* CompanyStaffViewController.swift in Sources */,

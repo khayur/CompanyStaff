@@ -91,7 +91,7 @@ extension CompaniesViewController: UITableViewDataSource {
     private func configureCell(cell: CompanyTableViewCell, at indexPath: IndexPath) {
             guard let companies = model?.companies else { return }
             cell.companyLabel.text = companies[indexPath.row].name
-            cell.setBackgroundForSelectedState(color: Constants.appMainColor)
+            cell.setBackgroundForSelectedState(color: Constants.appSupportingColor)
         }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
