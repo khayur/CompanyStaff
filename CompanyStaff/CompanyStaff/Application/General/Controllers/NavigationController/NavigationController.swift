@@ -37,8 +37,21 @@ class NavigationController: UINavigationController {
             if #available(iOS 13.0, *) {
                 overrideUserInterfaceStyle = .light
             }
-
-            navigationBar.setup(barColor: color)
-            view.backgroundColor = color
+            
+            design()
         }
+    private func design() {
+//        color = Constants.appMainColor
+//        navigationBar.setup(barColor: color)
+//        view.backgroundColor = color
+        
+        let appearanceOfNavBar = UINavigationBarAppearance()
+        appearanceOfNavBar.configureWithOpaqueBackground()
+        appearanceOfNavBar.backgroundColor = color
+        
+        
+        self.navigationBar.standardAppearance = appearanceOfNavBar
+        self.navigationBar.scrollEdgeAppearance = appearanceOfNavBar
+        self.navigationBar.tintColor = .white
+    }
 }

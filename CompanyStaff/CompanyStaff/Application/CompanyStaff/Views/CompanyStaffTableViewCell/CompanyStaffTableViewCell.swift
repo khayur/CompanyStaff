@@ -31,6 +31,10 @@ class CompanyStaffTableViewCell: BaseTableViewCell {
         ageStepper.value = Double(modelItem?.age ?? 0)
         ageStepper.autorepeat = false
         ageStepper.maximumValue = 120
+        ageStepper.backgroundColor = UIColor(red: 122, green: 129, blue: 255, alpha: 0.72)
+        ageStepper.layer.cornerRadius = self.frame.height / 8
+        ageStepper.backgroundColor = Constants.appMainColor
+        ageStepper.tintColor = .white
     }
     
     //MARK: -Actions

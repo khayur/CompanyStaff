@@ -26,4 +26,5 @@ extension UITableView {
         let cell: EmptyTableViewCell = dequeueReusableCell(forIndexPath: indexPath)
         return cell
     }
+    
 }

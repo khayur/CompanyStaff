@@ -10,6 +10,7 @@ import UIKit
 class CompanyTableViewCell: BaseTableViewCell {
     //MARK: -Outlets
     @IBOutlet weak var companyLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
     
     //MARK: -Properties
     

@@ -9,6 +9,7 @@ import UIKit
 
 struct Constants {
     static let animationDuration = 0.25
+    static let appMainColor: UIColor = UIColor(red: 122/255.0, green: 129/255.0, blue: 255/255.0, alpha: 0.72)
 }
 
 /// Converting type's name to String

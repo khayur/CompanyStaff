@@ -16,6 +16,7 @@ class NewCompanyView: UIView, NibLoadableView {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var errorLabel: UILabel!
+    @IBOutlet weak var warningStackView: UIStackView!
     
     //MARK: -Properties
     var controller: CompaniesViewController?
@@ -24,15 +25,16 @@ class NewCompanyView: UIView, NibLoadableView {
     func configure() {
         self.applyShadow(corner: 15, opacity: 0.5, shadow: 15)
         self.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        errorLabel.isHidden = true
+        warningStackView.isHidden = true
+    
     }
     
     private func isEnteredDataCorrect() -> Bool {
-        errorLabel.isHidden = true
+        warningStackView.isHidden = true
         
         if nameTextField.text == "" {
             errorLabel.text = getErrorLabelText(forCode: 1)
-            errorLabel.isHidden = false
+            warningStackView.isHidden = false
             return false
         }
         
@@ -40,7 +42,7 @@ class NewCompanyView: UIView, NibLoadableView {
            let controller = controller,
            !controller.isCompanyUnique(company: companyName) {
             errorLabel.text = getErrorLabelText(forCode: 4)
-            errorLabel.isHidden = false
+            warningStackView.isHidden = false
             return false
         }
         

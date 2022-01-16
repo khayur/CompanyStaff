@@ -36,7 +36,7 @@ class UsersViewController: BaseViewController {
     private func configureViewController() {
         fillModelWithData()
     }
-
+    
     private func fillModelWithData() {
         fillUsersDataBase()
         model = usersDataBase
@@ -70,12 +70,34 @@ extension UsersViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let users = model?.users else { return UITableViewCell() }
+        
         let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as UserTableViewCell
+        configureCell(cell: cell, at: indexPath)
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.alpha = 0
+        UIView.animate(withDuration: Constants.animationDuration, animations: { cell.alpha = 1 })
+        
+        cell.layer.transform = CATransform3DMakeScale(0.1, 0.1, 1)
+        UIView.animate(withDuration: Constants.animationDuration, animations: {
+            cell.layer.transform = CATransform3DMakeScale(1, 1, 1)
+        })
+    }
+    
+    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+        let cell = tableView.cellForRow(at: indexPath)
+        cell?.setHighlighted(true, animated: true)
+        return true
+    }
+    
+    private func configureCell(cell: UserTableViewCell, at indexPath: IndexPath) {
+        guard let users = model?.users else { return }
         let modelItem = users[indexPath.row]
         cell.userNameLabel.text = modelItem.name
         cell.companyNameLabel.text = modelItem.company?.name ?? "Unemployed"
-        return cell
+        cell.setBackgroundForSelectedState(color: Constants.appMainColor)
     }
 }
 

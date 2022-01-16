@@ -140,6 +140,17 @@ extension CompanyStaffViewController: UITableViewDataSource {
         cell.ageChanger = self
         cell.modelItem = user
         cell.configure()
+        cell.setBackgroundForSelectedState(color: Constants.appMainColor)
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.alpha = 0
+        UIView.animate(withDuration: Constants.animationDuration, animations: { cell.alpha = 1 })
+        
+        cell.layer.transform = CATransform3DMakeScale(0.1, 0.1, 1)
+        UIView.animate(withDuration: Constants.animationDuration, animations: {
+            cell.layer.transform = CATransform3DMakeScale(1, 1, 1)
+        })
     }
 }
 

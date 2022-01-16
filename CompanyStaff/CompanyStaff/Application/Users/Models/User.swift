@@ -10,6 +10,7 @@ import Foundation
 enum Sex: String, CaseIterable {
     case male
     case female
+    case other
 }
 protocol Nameable {
     var name: String { get }

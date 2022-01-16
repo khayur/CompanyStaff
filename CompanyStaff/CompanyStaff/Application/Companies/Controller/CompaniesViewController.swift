@@ -83,10 +83,25 @@ extension CompaniesViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let companies = model?.companies else { return UITableViewCell() }
         let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as CompanyTableViewCell
-        cell.companyLabel.text = companies[indexPath.row].name
+        configureCell(cell: cell, at: indexPath)
         return cell
+    }
+    
+    private func configureCell(cell: CompanyTableViewCell, at indexPath: IndexPath) {
+            guard let companies = model?.companies else { return }
+            cell.companyLabel.text = companies[indexPath.row].name
+            cell.setBackgroundForSelectedState(color: Constants.appMainColor)
+        }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.alpha = 0
+        UIView.animate(withDuration: Constants.animationDuration, animations: { cell.alpha = 1 })
+        
+        cell.layer.transform = CATransform3DMakeScale(0.1, 0.1, 1)
+        UIView.animate(withDuration: Constants.animationDuration, animations: {
+            cell.layer.transform = CATransform3DMakeScale(1, 1, 1)
+        })
     }
 }
 
@@ -96,7 +111,7 @@ extension CompaniesViewController: UITableViewDelegate {
         guard let vc = UIStoryboard.companyStaff.instantiateViewController(withIdentifier: typeName(CompanyStaffViewController.self)) as? CompanyStaffViewController else { fatalError() }
         vc.model = getUsers(at: indexPath)
         vc.companyName = model?.companies?[indexPath.row].name
-        navigationController?.pushViewController(vc, animated: true)
+        navigationController?.pushViewController(vc, animated: false)
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {

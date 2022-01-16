@@ -52,17 +52,25 @@ extension NewCompanyEmployeeView: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as NewCompanyEmployeeTableViewCell
-        cell.menuOptionLabel.text = menuOptions[indexPath.section]
+        configureCell(cell: cell, at: indexPath)
         return cell
     }
+    
+    private func configureCell(cell: NewCompanyEmployeeTableViewCell, at indexPath: IndexPath) {
+        cell.menuOptionLabel.text = menuOptions[indexPath.section]
+        cell.setBackgroundForSelectedState(color: Constants.appMainColor)
+    }
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView.init(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 10))
             view.backgroundColor = .white
             return view
     }
+    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         10
     }
+    
 }
 
 extension NewCompanyEmployeeView: UITableViewDelegate {

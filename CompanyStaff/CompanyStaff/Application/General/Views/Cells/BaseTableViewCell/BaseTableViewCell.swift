@@ -9,12 +9,16 @@ import UIKit
 
 class BaseTableViewCell: UITableViewCell, NibLoadableView, ReusableView {
 
+    //MARK: -Methods
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+    
+    /// Creates empty UIView for cell's background and fills it with color
+    /// - Parameter color: color for filling background view
+    func setBackgroundForSelectedState(color: UIColor) {
+        let backgroundView = UIView()
+        backgroundView.backgroundColor = color
+        self.selectedBackgroundView = backgroundView
     }
-
 }

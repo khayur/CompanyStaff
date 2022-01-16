@@ -16,6 +16,7 @@ class NewUserView: UIView, NibLoadableView {
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var donebutton: UIButton!
     @IBOutlet weak var chooseSexButton: UIButton!
+    @IBOutlet weak var warningStackView: UIStackView!
     
     //MARK: -Properties
     var controller: CompanyStaffViewController?
@@ -29,32 +30,32 @@ class NewUserView: UIView, NibLoadableView {
     func configure() {
         self.frame = CGRect(x: 50, y: 20, width: 200, height: 300)
         setupChooseSexButton()
-        errorLabel.isHidden = true
+        warningStackView.isHidden = true
         ageTextField.keyboardType = .numberPad
     }
     
     func isEnteredDataCorrect() -> Bool {
-        errorLabel.isHidden = true
+        warningStackView.isHidden = true
         nameTextField.backgroundColor = .white
         ageTextField.backgroundColor = .white
         
         if nameTextField.text == "" {
             errorLabel.text = getErrorLabelText(forCode: 1)
-            errorLabel.isHidden = false
+            warningStackView.isHidden = false
             nameTextField.backgroundColor = .red.withAlphaComponent(0.2)
             return false
         }
         
         if ageTextField.text == "" {
             errorLabel.text = getErrorLabelText(forCode: 1)
-            errorLabel.isHidden = false
+            warningStackView.isHidden = false
             ageTextField.backgroundColor = .red.withAlphaComponent(0.2)
             return false
         }
         
         if Int(ageTextField.text!) == nil {
             errorLabel.text = getErrorLabelText(forCode: 2)
-            errorLabel.isHidden = false
+            warningStackView.isHidden = false
             ageTextField.backgroundColor = .red.withAlphaComponent(0.2)
             return false
         }
@@ -62,7 +63,7 @@ class NewUserView: UIView, NibLoadableView {
         if chooseSexButton.titleLabel?.text == "Choose sex" {
             chooseSexButton.titleLabel?.textColor = .red
             errorLabel.text = getErrorLabelText(forCode: 3)
-            errorLabel.isHidden = false
+            warningStackView.isHidden = false
             return false
         }
         
