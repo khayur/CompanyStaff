@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" delaysContentTouches="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="miX-EG-PZp">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -30,14 +30,14 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="miX-EG-PZp" secondAttribute="bottom" id="y0o-qi-mUZ"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Users" image="person" catalog="system" id="Y1v-j5-Alf"/>
+                    <navigationItem key="navigationItem" id="hyJ-rF-GBD"/>
                     <connections>
                         <outlet property="usersTableView" destination="miX-EG-PZp" id="8Nx-Tf-SAe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="970" y="-239"/>
+            <point key="canvasLocation" x="1879.7101449275365" y="-239.0625"/>
         </scene>
         <!--Companies View Controller-->
         <scene sceneID="TLO-HA-Yvd">
@@ -158,7 +158,7 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="LBL-ZO-XK4"/>
+                        <segue destination="m2J-wZ-g0k" kind="relationship" relationship="viewControllers" id="LBL-ZO-XK4"/>
                         <segue destination="xzA-hc-kOb" kind="relationship" relationship="viewControllers" id="vbk-BF-gIT"/>
                     </connections>
                 </tabBarController>
@@ -189,6 +189,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ff9-rw-Nmq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="969.56521739130437" y="430.58035714285711"/>
+        </scene>
+        <!--Users-->
+        <scene sceneID="2sS-0M-sra">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="m2J-wZ-g0k" customClass="NavigationController" customModule="CompanyStaff" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Users" image="person" catalog="system" id="Y1v-j5-Alf"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="sfO-I5-lGc">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="IXt-AI-fug"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FtR-Dk-TD8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="969.56521739130437" y="-239.0625"/>
         </scene>
     </scenes>
     <resources>
