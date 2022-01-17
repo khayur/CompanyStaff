@@ -41,11 +41,19 @@ class CompaniesViewController: BaseViewController {
     }
     
     private func createNewCompanyView() {
+        let overlayView = getOverlayView()
+        view.addSubview(overlayView)
         newCompanyView = NewCompanyView.instantiate()
         newCompanyView.controller = self
         newCompanyView.configure()
         newCompanyView.center = CGPoint(x: view.bounds.midX, y: view.bounds.midY)
-        self.view.addSubview(newCompanyView)
+        
+        if let taggedView = view.viewWithTag(111) {
+            taggedView.removeFromSuperview()
+            overlayView.addSubview(newCompanyView)
+        } else {
+            overlayView.addSubview(newCompanyView)
+        }
     }
     
     //MARK: -EASTER EGG :)

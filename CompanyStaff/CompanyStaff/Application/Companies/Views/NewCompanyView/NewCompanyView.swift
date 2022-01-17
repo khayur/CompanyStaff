@@ -62,6 +62,10 @@ class NewCompanyView: BaseView {
     //MARK: -Actions
     @IBAction func didPressCancelButton() {
         self.removeFromSuperview(animated: true)
+        
+        if let superview = superview?.viewWithTag(Constants.tagForOverlayView) {
+            superview.removeFromSuperview()
+        }
     }
     
     @IBAction func didPressAddButton() {

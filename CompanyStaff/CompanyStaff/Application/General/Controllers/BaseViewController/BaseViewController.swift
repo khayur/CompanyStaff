@@ -46,6 +46,7 @@ class BaseViewController: UIViewController {
         let overlayView = UIView()
         overlayView.frame = view.bounds
         overlayView.tag = Constants.tagForOverlayView
+        overlayView.backgroundColor = UIColor(white: 0, alpha: 0.4)
         return overlayView
     }
     
